@@ -18,5 +18,5 @@ gulp.task('browser-sync', function () {
 });
 
 gulp.task('default', ['sass', 'browser-sync'], function () {
-	gulp.watch('*/*.scss', ['sass']); // Watching all scss changes on changes in the background
+	gulp.watch('./*.scss', ['sass']); // Watching all scss changes on changes in the background
 });
