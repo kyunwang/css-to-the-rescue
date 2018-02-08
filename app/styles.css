@@ -15,26 +15,12 @@
   unicode-range: U+26;
 }
 
+/*==========================
+=== Default/Reset styles
+===========================*/
 html {
     font-family: var(--primary-font);
     background-color: #F6F3D7;
-}
-
-body > form:first-of-type {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 2em);
-    grid-template-areas: "";
-    grid-auto-rows: 2em;
-    right: 0;
-    left: 0;
-    max-width: 22em;
-    z-index: 100;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 1em;
-    border-radius: .3rem;
-    background: var(--main-white);
 }
 
 h1 {
@@ -56,11 +42,49 @@ img {
     object-fit: cover;
 }
 
-[for="account-btn"] {
-    color: red;
+figure {
+    margin: 0;
 }
 
-[name="account-btn"]:checked ~ main {
+figure img {
+    max-height: 20em;
+}
+
+figcaption {
+    padding: 1em;
+}
+
+ul {
+    padding: 0;
+}
+
+/*==========================
+=== The loginform
+===========================*/
+body > form:first-of-type {
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 2em);
+    grid-template-areas: "";
+    grid-auto-rows: 2em;
+    z-index: 100;
+    position: fixed;
+    right: 0;
+    left: 0;
+    max-width: 22em;
+    background: var(--main-white);
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1em;
+    border-radius: .3rem;
+}
+
+body > form:first-of-type:target {
+    display: grid;
+}
+
+body > form:first-of-type:target ~ main::before {
+    content: "";
     position: fixed;
     top: 0;
     right: 0;
@@ -70,23 +94,9 @@ img {
     background: rgba(0, 0, 0, 0.8);
 }
 
-[name="account-btn"]:checked ~ form:nth-of-type(1) {
-    position: fixed;
-    right: 0;
-    left: 0;
-    max-width: 22em;
-    z-index: 100;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 1em;
-    border-radius: var(--border-radius);
-}
-
-form:target {
-    background: red;
-    border: 2px solid black;
-}
-
+/*==========================
+=== The navigation
+===========================*/
 nav {
     font-size: var(--font-small);
 }
@@ -105,6 +115,9 @@ nav li ul {
     max-height: 0;
 }
 
+/*==========================
+=== Cards
+===========================*/
 article {
     border-radius: var(--border-radius);
     background-color: var(--main-white);
@@ -134,22 +147,6 @@ article:nth-of-type(1) p {
 article:nth-of-type(2) {
     margin-top: 1em;
     max-width: 20rem;
-}
-
-figure {
-    margin: 0;
-}
-
-figure img {
-    max-height: 20em;
-}
-
-figcaption {
-    padding: 1em;
-}
-
-ul {
-    padding: 0;
 }
 
 @media all and (max-width: 40em) {
