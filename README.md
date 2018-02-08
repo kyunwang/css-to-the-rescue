@@ -12,6 +12,8 @@ A quick and fun introduction to the new CSS module, CSS Grid. I've learned come 
 Wes Boss [CSS Grid course](https://cssgrid.io):
 Learning more about CSS Grid's syntax and using it in practical sense.
 
+Adding id's to the components/sections so that you can jump to a component right away without having to tab through everything.
+
 ## What to do/planned
 
 

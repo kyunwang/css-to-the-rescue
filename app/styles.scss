@@ -5,12 +5,38 @@
 	--font-big-mobile: 1.2em;
 	--font-normal-mobile: .8em;
 
+	--border-radius: .2em;
+
 	--main-white: #fff; 
 }
 
 html {
 	font-family: var(--primary-font);
 	background-color: #F6F3D7;
+}
+
+body {
+	& > form:first-of-type {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(6, 2em);
+		grid-template-areas:
+		"";
+		grid-auto-rows: 2em;
+		
+		// position: fixed;
+		right: 0;
+		left: 0;
+		max-width: 22em;
+		z-index: 100;
+
+		margin-right: auto;
+		margin-left: auto;
+		padding: 1em;
+		border-radius: .3rem;
+
+		background: var(--main-white);
+	}
 }
 
 h1 {
@@ -23,6 +49,7 @@ p {
 
 main {
 	display: grid;
+	transition: .6s background;
 }
 
 img {
@@ -31,8 +58,50 @@ img {
 	object-fit: cover;
 }
 
+// The loginform
+[for="account-btn"] {
+	color: red
+}
+
+[name="account-btn"]:checked ~ main {
+	// display: none;
+	// height: 200px
+	// filter: blur(5px);
+	// filter: blur(3px) contrast(.8) brightness(.8);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	background: rgba(0,0,0,.8);
+}
 
 
+[name="account-btn"]:checked ~ form:nth-of-type(1) {
+	// display: none;
+	// height: 200px
+	// filter: blur(5px);
+	// filter: blur(3px) contrast(.8) brightness(.8);
+	position: fixed;
+	right: 0;
+	left: 0;
+	max-width: 22em;
+	z-index: 100;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 1em;
+	border-radius: var(--border-radius);
+}
+
+[type="checkbox"] {
+	// position: absolute;
+	// top: -9999999em;
+	// right: -999999em;
+}
+
+
+// The navigation
 nav {
 	ul {
 		display: grid;
@@ -50,8 +119,13 @@ nav {
 	}
 } 
 
+
+// Our loginform
+
+
+
 article {
-	border-radius: .3rem;
+	border-radius: var(--border-radius);
 	background-color: var(--main-white);
 	overflow: hidden;
 }
@@ -105,11 +179,7 @@ li {
 	// list-style: none;
 }
 
-@media all and (max-width: 35em) {
-	article {
-
-	}
-
+@media all and (max-width: 40em) {
 	h1 {
 		font-size: var(--font-big-mobile);
 	}
@@ -119,7 +189,7 @@ li {
 	}
 }
 
-@media all and (min-width: 35em) {
+@media all and (min-width: 40em) {
 	body {
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-rows: 1fr 1fr 1fr;
