@@ -1,13 +1,27 @@
 :root {
-	--primary-font: 'Raleway', sans-serif;
+	--primary-font: 'Ampersand', 'Raleway', sans-serif;
 	--font-big: 1.5em;
 	--font-normal: 1em;
+	--font-small: .8em;
 	--font-big-mobile: 1.2em;
 	--font-normal-mobile: .8em;
 
 	--border-radius: .2em;
 
 	--main-white: #fff; 
+}
+
+@font-face {
+	font-family: Ampersand;
+	src:
+		local('Big caslon'),
+		local('Bakery'),
+		local('Athelas'),
+		local('Baskerville'),
+		local('Goudy Old Style'),
+		local('Garamond'),
+		local('Palatino');
+	unicode-range: U+26;
 }
 
 html {
@@ -100,13 +114,21 @@ img {
 	// right: -999999em;
 }
 
+form {
+	&:target{
+		background: red;
+		border: 2px solid black;
+	}
+}
 
 // The navigation
 nav {
+	font-size: var(--font-small);
 	ul {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 2fr;
+		grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+		// grid-auto-columns: auto;
+		// grid-template-rows: 1fr;
 		// align-items: center;
 	}
 
@@ -116,6 +138,7 @@ nav {
 
 	li ul {
 		visibility: hidden;
+		max-height: 0;
 	}
 } 
 
@@ -173,6 +196,10 @@ figure {
 
 figcaption {
 	padding: 1em;
+}
+
+ul {
+	padding: 0;
 }
 
 li {
