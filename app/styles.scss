@@ -164,35 +164,28 @@ nav {
 		//  visibility: hidden;
 		//  max-height: 0;
 	}
+
+	ul ul {
+		opacity: 0;
+		height: 0;
+		
+		&:focus,
+		&:focus-within {
+			opacity: 1;
+			height: auto;
+		}
+	}
 }
 
 [href="/products"] {
-	&+ul {
-		// opacity: 0;
-		opacity: 1;
-	}
-
-	&:focus {
-		background: blue;
-		+ul {
-			opacity: 1;
-			// visibility: visible;
-			// max-height: auto;
-		}
-	}
-
+	&:hover,
+	&:focus,
 	&:focus-within {
-		background: red;
 		+ul {
 			opacity: 1;
-			// visibility: visible;
-			// max-height: auto;
+			height: auto;
 		}
-	}
-
-	// &:focus-within {
-	// 	background: blue;
-	// }	
+	}	
 }
 
 /*==========================

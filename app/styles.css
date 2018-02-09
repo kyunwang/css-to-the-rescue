@@ -119,24 +119,19 @@ nav li {
     list-style: none;
 }
 
-[href="/products"] + ul {
+nav ul ul {
+    opacity: 0;
+    height: 0;
+}
+
+nav ul ul:focus, nav ul ul:focus-within {
     opacity: 1;
+    height: auto;
 }
 
-[href="/products"]:focus {
-    background: blue;
-}
-
-[href="/products"]:focus + ul {
+[href="/products"]:hover + ul, [href="/products"]:focus + ul, [href="/products"]:focus-within + ul {
     opacity: 1;
-}
-
-[href="/products"]:focus-within {
-    background: red;
-}
-
-[href="/products"]:focus-within + ul {
-    opacity: 1;
+    height: auto;
 }
 
 /*==========================
