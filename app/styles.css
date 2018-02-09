@@ -78,14 +78,34 @@ ul {
 }
 
 /*==========================
-=== Our main container
+=== Our containers
 ===========================*/
+body {
+    display: grid;
+    grid-template-areas: "header content content" "header content content" "header content content";
+    padding-top: 2rem;
+}
+
 main {
+    grid-area: content;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     grid-gap: 1.5rem;
     padding: 0 1rem;
     transition: .6s background;
+}
+
+/*==========================
+=== Header
+===========================*/
+header {
+    grid-area: header;
+    position: relative;
+    margin: 0 1.5rem;
+}
+
+header nav {
+    position: fixed;
 }
 
 /*==========================
@@ -95,18 +115,28 @@ nav {
     font-size: var(--font-small);
 }
 
-nav ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
-}
-
 nav li {
     list-style: none;
 }
 
-nav li ul {
-    visibility: hidden;
-    max-height: 0;
+[href="/products"] + ul {
+    opacity: 1;
+}
+
+[href="/products"]:focus {
+    background: blue;
+}
+
+[href="/products"]:focus + ul {
+    opacity: 1;
+}
+
+[href="/products"]:focus-within {
+    background: red;
+}
+
+[href="/products"]:focus-within + ul {
+    opacity: 1;
 }
 
 /*==========================
@@ -208,13 +238,5 @@ fieldset svg {
 
     p {
         font-size: var(--font-normal-mobile);
-    }
-}
-
-@media all and (min-width: 40em) {
-    body {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template-areas: "nav nav nav" "login login login";
     }
 }
