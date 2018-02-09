@@ -1,10 +1,10 @@
 :root {
     --primary-font: 'Ampersand', 'Raleway', sans-serif;
-    --font-big: 1.5em;
+    --font-big: 1.3em;
     --font-normal: 1em;
     --font-small: .8em;
-    --font-big-mobile: 1.2em;
-    --font-normal-mobile: .8em;
+    --font-big-mobile: 1.1em;
+    --font-normal-mobile: .9em;
     --border-radius: .2em;
     --main-white: #fff;
 }
@@ -25,15 +25,11 @@ html {
 
 h1 {
     font-size: var(--font-big);
+    margin: 0;
 }
 
 p {
     font-style: var(--font-normal);
-}
-
-main {
-    display: grid;
-    transition: .6s background;
 }
 
 img {
@@ -46,8 +42,13 @@ figure {
     margin: 0;
 }
 
-figure img {
-    max-height: 20em;
+figure {
+    max-width: max-content;
+    margin: auto;
+}
+
+figure > img {
+    max-width: inherit;
 }
 
 figcaption {
@@ -56,6 +57,38 @@ figcaption {
 
 ul {
     padding: 0;
+}
+
+/*==========================
+=== Our main container
+===========================*/
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-gap: 1.5rem;
+    padding: 0 1rem;
+    transition: .6s background;
+}
+
+/*==========================
+=== The navigation
+===========================*/
+nav {
+    font-size: var(--font-small);
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li ul {
+    visibility: hidden;
+    max-height: 0;
 }
 
 /*==========================
@@ -95,67 +128,59 @@ body > form:first-of-type:target ~ main::before {
 }
 
 /*==========================
-=== The navigation
-===========================*/
-nav {
-    font-size: var(--font-small);
-}
-
-nav ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
-}
-
-nav li {
-    list-style: none;
-}
-
-nav li ul {
-    visibility: hidden;
-    max-height: 0;
-}
-
-/*==========================
 === Cards
 ===========================*/
 article {
+    position: relative;
     border-radius: var(--border-radius);
-    background-color: var(--main-white);
-    overflow: hidden;
 }
 
-article:nth-of-type(1) {
+article h1 {
+    padding: 1.2rem 1rem;
+}
+
+article > div {
     display: grid;
-    grid-template-areas: "title title image" "content content image";
-    padding: 1em;
+    grid-template-rows: 4em 1fr auto;
+    background-color: var(--main-white);
+    transition: .3s all;
 }
 
-article:nth-of-type(1) h1 {
-    grid-area: title;
+article > div:focus, article > div:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-article:nth-of-type(1) img {
-    grid-area: image;
-    height: 50%;
-    align-self: center;
+/*==========================
+=== rating fieldset
+===========================*/
+fieldset {
+    display: grid;
 }
 
-article:nth-of-type(1) p {
-    grid-area: content;
-}
-
-article:nth-of-type(2) {
-    margin-top: 1em;
-    max-width: 20rem;
+fieldset svg {
+    height: 2.5em;
 }
 
 @media all and (max-width: 40em) {
+    main {
+        grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    }
+
     h1 {
         font-size: var(--font-big-mobile);
     }
 
     p {
-        font-style: var(--font-normal-mobile);
+        font-size: var(--font-normal-mobile);
+    }
+
+    article h1 {
+        padding: .9rem 1rem;
+    }
+
+    article > div {
+        display: grid;
+        grid-template-rows: 3em 1fr auto;
     }
 }
 

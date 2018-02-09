@@ -1,10 +1,10 @@
 :root {
     --primary-font: 'Ampersand', 'Raleway', sans-serif;
-    --font-big: 1.5em;
+    --font-big: 1.3em;
     --font-normal: 1em;
     --font-small: .8em;
-    --font-big-mobile: 1.2em;
-    --font-normal-mobile: .8em;
+    --font-big-mobile: 1.1em;
+    --font-normal-mobile: .9em;
     --border-radius: .2em;
     --main-white: #fff;
 }
@@ -22,20 +22,16 @@
 
 html {
     font-family: var(--primary-font);
-    background-color: #F6F3D7;
+	 background-color: #F6F3D7;
 }
 
 h1 {
-    font-size: var(--font-big);
+	 font-size: var(--font-big);
+	 margin: 0;
 }
 
 p {
     font-style: var(--font-normal);
-}
-
-main {
-    display: grid;
-    transition: .6s background;
 }
 
 img {
@@ -47,9 +43,19 @@ img {
 figure {
     margin: 0;
     img {
-        max-height: 20em;
+      //   max-height: 20em;
     }
 }
+
+figure {
+	// max-width: 500px;
+	// max-width: min-content;
+	max-width: max-content;
+	margin: auto;
+}
+
+figure > img { max-width: inherit; }
+
 
 figcaption {
     padding: 1em;
@@ -63,6 +69,48 @@ li {
     // list-style: none;
 }
 
+a {
+
+}
+
+:focus {
+	// background: pink;
+}
+
+/*==========================
+=== Our main container
+===========================*/
+main {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	grid-gap: 1.5rem;
+	
+	padding: 0 1rem;
+	
+	transition: .6s background;
+}
+
+/*==========================
+=== The navigation
+===========================*/
+
+nav {
+	font-size: var(--font-small);
+	ul {
+		 display: grid;
+		 grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+		 // grid-auto-columns: auto;
+		 // grid-template-rows: 1fr;
+		 // align-items: center;
+	}
+	li {
+		 list-style: none;
+	}
+	li ul {
+		 visibility: hidden;
+		 max-height: 0;
+	}
+}
 
 /*==========================
 === The loginform
@@ -106,76 +154,118 @@ body {
     }
 }
 
-/*==========================
-=== The navigation
-===========================*/
-
-nav {
-    font-size: var(--font-small);
-    ul {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(10em, 1fr)); // grid-auto-columns: auto;
-        // grid-template-rows: 1fr;
-        // align-items: center;
-    }
-    li {
-        list-style: none;
-    }
-    li ul {
-        visibility: hidden;
-        max-height: 0;
-    }
-}
-
 
 /*==========================
 === Cards
 ===========================*/
 
 article {
-    border-radius: var(--border-radius);
-    background-color: var(--main-white);
-    overflow: hidden;
+	position: relative;
+	// overflow: hidden;
+	border-radius: var(--border-radius);
 }
 
-// Article
-article:nth-of-type(1) {
-    display: grid;
-	 grid-template-areas:
-		 "title title image"
-	 	"content content image";
-    padding: 1em;
-    h1 {
-        grid-area: title;
-    }
-    img {
-        grid-area: image;
-        height: 50%;
-        align-self: center;
-    }
-    p {
-        grid-area: content;
-    }
+article {
+	// max-width: 20rem;
+	// margin-top: 1em; // Will be deleted when done
+	h1 {
+		padding: 1.2rem 1rem;
+	}
+	&>div {
+		display: grid;
+		grid-template-rows: 4em 1fr auto;
+
+		background-color: var(--main-white);
+		transition: .3s all;
+		
+		// position: absolute;
+		// height: 100%;
+		// width: 100%;
+
+		&:focus,
+		&:hover {
+			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+		}
+
+		&:target {
+			
+		}
+	
+	}
 }
 
-article:nth-of-type(2) {
-    margin-top: 1em; // Will be deleted when done
-    // display: grid;
-    // grid-template-columns: 1fr;
-    // grid-template-rows: minmax(2em, 5em) 1fr 5em;
-    // grid-template-rows: auto  auto;
-    // grid-template-rows: auto-fit 1fr auto;
-    // grid-auto-flow: dense;
-    max-width: 20rem;
+// Article with media
+// article:nth-of-type(1) {
+//     display: grid;
+// 	 grid-template-areas:
+// 		 "title title image"
+// 	 	"content content image";
+//     padding: 1em;
+//     h1 {
+//         grid-area: title;
+//     }
+//     img {
+//         grid-area: image;
+//         height: 50%;
+//         align-self: center;
+//     }
+//     p {
+//         grid-area: content;
+//     }
+// }
+
+// article:nth-of-type(2) {
+//     margin-top: 1em; // Will be deleted when done
+//     // display: grid;
+//     // grid-template-columns: 1fr;
+//     // grid-template-rows: minmax(2em, 5em) 1fr 5em;
+//     // grid-template-rows: auto  auto;
+//     // grid-template-rows: auto-fit 1fr auto;
+//     // grid-auto-flow: dense;
+//     max-width: 20rem;
+// }
+
+
+/*==========================
+=== rating fieldset
+===========================*/
+
+fieldset {
+	display: grid;
+	// grid-template-columns: repeat(10, 5em);
+	// grid
+	// grid-template-columns: repeat(auto-fit, 1fr);
+	// grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+
+	svg {
+		height: 2.5em;
+	}
 }
+
 
 @media all and (max-width: 40em) {
+	main {
+		grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+	}
     h1 {
         font-size: var(--font-big-mobile);
     }
     p {
-        font-style: var(--font-normal-mobile);
-    }
+        font-size: var(--font-normal-mobile);
+	 }
+	 
+
+	 article {
+		// max-width: 20rem;
+		// margin-top: 1em; // Will be deleted when done
+		h1 {
+			padding: .9rem 1rem;
+		}
+		&>div {
+			display: grid;
+			grid-template-rows: 3em 1fr auto;
+		}
+	}
 }
 
 @media all and (min-width: 40em) {
