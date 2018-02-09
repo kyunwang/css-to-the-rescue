@@ -1,12 +1,15 @@
 :root {
-    --primary-font: 'Ampersand', 'Raleway', sans-serif;
-    --font-big: 1.3em;
-    --font-normal: 1em;
+    --primary-font: 'Ampersand', 'Work Sans' ,'Raleway', sans-serif;
+    --font-big: 1.2em;
+    --font-normal: .9em;
     --font-small: .8em;
     --font-big-mobile: 1.1em;
     --font-normal-mobile: .9em;
     --border-radius: .2em;
     --main-white: #fff;
+    --black: #201F24;
+    --main-gray: #F2F2F4;
+    --focus-color: tomato;
 }
 
 @font-face {
@@ -15,17 +18,29 @@
   unicode-range: U+26;
 }
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 /*==========================
 === Default/Reset styles
 ===========================*/
 html {
     font-family: var(--primary-font);
-    background-color: #F6F3D7;
+}
+
+h1, p {
+    color: var(--black);
 }
 
 h1 {
     font-size: var(--font-big);
     margin: 0;
+    font-weight: 900;
 }
 
 p {
@@ -34,7 +49,6 @@ p {
 
 img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
 }
 
@@ -52,11 +66,15 @@ figure > img {
 }
 
 figcaption {
-    padding: 1em;
+    padding: 1.5rem;
 }
 
 ul {
     padding: 0;
+}
+
+[type="radio"] {
+    position: absolute;
 }
 
 /*==========================
@@ -98,18 +116,17 @@ body > form:first-of-type {
     display: none;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 2em);
-    grid-template-areas: "";
     grid-auto-rows: 2em;
     z-index: 100;
     position: fixed;
     right: 0;
     left: 0;
     max-width: 22em;
-    background: var(--main-white);
+    background: var(--main-gray);
     margin-right: auto;
     margin-left: auto;
     padding: 1em;
-    border-radius: .3rem;
+    border-radius: var(--border-radius);
 }
 
 body > form:first-of-type:target {
@@ -135,26 +152,45 @@ article {
     border-radius: var(--border-radius);
 }
 
-article h1 {
-    padding: 1.2rem 1rem;
-}
-
-article > div {
+article figure {
     display: grid;
-    grid-template-rows: 4em 1fr auto;
-    background-color: var(--main-white);
+    grid-template-rows: 1fr auto;
+    background-color: var(--main-gray);
     transition: .3s all;
 }
 
-article > div:focus, article > div:hover {
+article figure:focus, article figure:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 /*==========================
-=== rating fieldset
+=== Rating fieldset
 ===========================*/
 fieldset {
-    display: grid;
+    margin-bottom: 1rem;
+    text-align: center;
+    border: none;
+}
+
+fieldset label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+fieldset input + label svg {
+    transition: .3s all;
+    border: 0px solid var(--focus-color);
+    border-radius: 100%;
+}
+
+fieldset input:focus, fieldset input:hover {
+    outline: red;
+}
+
+fieldset input:focus + label svg, fieldset input:hover + label svg {
+    border: 3px solid var(--focus-color);
 }
 
 fieldset svg {
@@ -172,15 +208,6 @@ fieldset svg {
 
     p {
         font-size: var(--font-normal-mobile);
-    }
-
-    article h1 {
-        padding: .9rem 1rem;
-    }
-
-    article > div {
-        display: grid;
-        grid-template-rows: 3em 1fr auto;
     }
 }
 
