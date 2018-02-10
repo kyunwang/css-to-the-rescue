@@ -5,9 +5,10 @@
     --font-small: .8em;
     --font-big-mobile: 1.1em;
     --font-normal-mobile: .9em;
-    --border-radius: .2em;
+    --border-radius: 0;
     --main-white: #fff;
-    --black: #201F24;
+    --black: #515057;
+    --black2: #6b6972;
     --main-gray: #F2F2F4;
     --focus-color: tomato;
 }
@@ -33,27 +34,21 @@ html {
     font-family: var(--primary-font);
 }
 
-h1, p {
-    color: var(--black);
-}
-
 h1 {
     font-size: var(--font-big);
-    margin: 0;
     font-weight: 900;
+    margin: 0;
+    color: var(--black);
 }
 
 p {
     font-style: var(--font-normal);
+    color: var(--black2);
 }
 
 img {
     width: 100%;
     object-fit: cover;
-}
-
-figure {
-    margin: 0;
 }
 
 figure {
@@ -75,6 +70,7 @@ ul {
 
 [type="radio"] {
     position: absolute;
+    left: -999999em;
 }
 
 /*==========================
@@ -100,7 +96,6 @@ main {
 ===========================*/
 header {
     grid-area: header;
-    position: relative;
     margin: 0 1.5rem;
 }
 
@@ -112,6 +107,7 @@ header nav {
 === The navigation
 ===========================*/
 nav {
+    position: relative;
     font-size: var(--font-small);
 }
 
@@ -120,11 +116,13 @@ nav li {
 }
 
 nav ul ul {
+    visibility: hidden;
     opacity: 0;
     height: 0;
 }
 
 nav ul ul:focus, nav ul ul:focus-within {
+    visibility: visible;
     opacity: 1;
     height: auto;
 }
@@ -172,19 +170,39 @@ body > form:first-of-type:target ~ main::before {
 /*==========================
 === Cards
 ===========================*/
-article {
+article figure {
+    display: grid;
+    grid-template-rows: 1fr 3em auto;
+}
+
+article:nth-of-type(2n + 1) {
     position: relative;
     border-radius: var(--border-radius);
 }
 
-article figure {
+article:nth-of-type(2n) {
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto auto 1fr;
+}
+
+article:nth-of-type(2n) h1 {
+    padding: .5rem 1.5rem;
+}
+
+article:nth-of-type(2n) p {
+    padding: 0 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+figure,
+article:nth-of-type(2n) {
     background-color: var(--main-gray);
     transition: .3s all;
 }
 
-article figure:focus, article figure:hover {
+figure:focus, figure:hover,
+  article:nth-of-type(2n):focus,
+  article:nth-of-type(2n):hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
@@ -192,16 +210,15 @@ article figure:focus, article figure:hover {
 === Rating fieldset
 ===========================*/
 fieldset {
-    margin-bottom: 1rem;
     text-align: center;
     border: none;
 }
 
 fieldset label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+    text-align: center;
+    font-size: 0;
+    padding: .5rem;
 }
 
 fieldset input + label svg {
@@ -219,10 +236,18 @@ fieldset input:focus + label svg, fieldset input:hover + label svg {
 }
 
 fieldset svg {
-    height: 2.5em;
+    height: 2rem;
 }
 
 @media all and (max-width: 40em) {
+    body {
+        grid-template-areas: "header" "content";
+    }
+
+    header nav {
+        position: relative;
+    }
+
     main {
         grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
     }
