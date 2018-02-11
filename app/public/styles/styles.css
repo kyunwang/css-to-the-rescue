@@ -1,0 +1,200 @@
+:root {
+    --primary-font: 'Ampersand', 'Work Sans' ,'Raleway', sans-serif;
+    --font-big: 1.2em;
+    --font-normal: .9em;
+    --font-small: .8em;
+    --font-big-mobile: 1.1em;
+    --font-normal-mobile: .9em;
+    --border-radius: 0;
+    --main-white: #fff;
+    --black: #515057;
+    --black2: #6b6972;
+    --main-gray: #F2F2F4;
+    --focus-color: tomato;
+    --border-radius: 1rem;
+    --main-bg: #F8F9FA;
+}
+
+@font-face {
+    font-family: Ampersand;
+  src: local("Big caslon"), local("Bakery"), local("Athelas"), local("Baskerville"), local("Goudy Old Style"), local("Garamond"), local("Palatino");
+  unicode-range: U+26;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*==========================
+=== Default/Reset styles
+===========================*/
+html {
+    font-family: var(--primary-font);
+}
+
+h1 {
+    font-size: var(--font-big);
+    font-weight: 900;
+    margin: 0;
+    color: var(--black);
+}
+
+p {
+    font-style: var(--font-normal);
+    color: var(--black2);
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+figure {
+    max-width: max-content;
+    margin: auto;
+}
+
+figure > img {
+    max-width: inherit;
+}
+
+figcaption {
+    padding: 1.5rem;
+}
+
+ul {
+    padding: 0;
+}
+
+[type="radio"] {
+    position: absolute;
+    left: -999999em;
+}
+
+/*==========================
+=== Our containers
+===========================*/
+body {
+    display: grid;
+    padding-top: 2rem;
+    background: var(--main-bg);
+    grid-template-areas: "header" "content" "mainnav";
+}
+
+main {
+    grid-area: content;
+    display: grid;
+    grid-gap: 1rem;
+    grid-auto-rows: minmax(120px, auto);
+    grid-auto-flow: dense;
+    padding: 0 1rem;
+    transition: .6s background;
+}
+
+@media all and (min-width: 40rem) {
+    body {
+        grid-template-areas: "header mainnav" "content content";
+    }
+
+    main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media all and (min-width: 50rem) {
+    body {
+        grid-template-areas: "header mainnav mainnav" "content content content";
+    }
+
+    main {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media all and (min-width: 70rem) {
+    main {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/*==========================
+=== Header
+===========================*/
+header {
+    grid-area: header;
+    margin: 0 1.5rem;
+}
+
+/*==========================
+=== The navigation
+===========================*/
+nav {
+    grid-area: mainnav;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav ul ul {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+}
+
+nav ul ul:focus, nav ul ul:focus-within {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}
+
+[href="/products"]:hover + ul, [href="/products"]:focus + ul, [href="/products"]:focus-within + ul {
+    opacity: 1;
+    height: auto;
+}
+
+/*==========================
+=== The loginform
+===========================*/
+/*==========================
+=== Card Main
+===========================*/
+article {
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    transition: .3s all;
+    height: min-content;
+}
+
+article:focus, article:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+article img {
+    border-radius: var(--border-radius);
+}
+
+@media all and (min-width: 40rem) {
+    article:nth-of-type(2n + 1) {
+        grid-column: span 2;
+    }
+
+    article:nth-of-type(3n + 3) {
+        grid-column: span 1;
+    }
+
+    article:nth-of-type(3n + 4) {
+        grid-column: span 2;
+    }
+}
+
+/*==========================
+=== Card PopUp
+===========================*/
+/*==========================
+=== Rating fieldset
+===========================*/

@@ -1,0 +1,278 @@
+:root {
+    --primary-font: 'Ampersand', 'Work Sans' ,'Raleway', sans-serif;
+    --font-big: 1.2em;
+    --font-normal: .9em;
+    --font-small: .8em;
+    --font-big-mobile: 1.1em;
+    --font-normal-mobile: .9em;
+	 --border-radius: 0;
+	 
+   //  --border-radius: .2em;
+	 --main-white: #fff;
+	 --black: rgb(81, 80, 87);
+	 --black2: rgb(107, 105, 114);
+	 --main-gray: #F2F2F4;
+	 --focus-color: tomato;
+
+	 --border-radius: 1rem;
+
+	 --main-bg: #F8F9FA;
+}
+
+@font-face {
+    font-family: Ampersand;
+    src: local('Big caslon'), local('Bakery'), local('Athelas'), local('Baskerville'), local('Goudy Old Style'), local('Garamond'), local('Palatino');
+    unicode-range: U+26;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/*==========================
+=== Default/Reset styles
+===========================*/
+
+html {
+    font-family: var(--primary-font);
+	//  background-color: #F6F3D7;
+}
+
+
+h1 {
+	font-size: var(--font-big);
+	font-weight: 900; 
+	margin: 0;
+	color: var(--black);
+}
+
+p {
+	font-style: var(--font-normal);
+	color: var(--black2);
+}
+
+img {
+    width: 100%;
+   //  height: 100%;
+    object-fit: cover;
+}
+
+figure {
+	max-width: max-content;
+	margin: auto;
+}
+
+figure > img { max-width: inherit; }
+
+figcaption {
+    padding: 1.5rem;
+}
+
+ul {
+    padding: 0;
+}
+
+a {
+
+}
+
+[type="radio"] {
+	position: absolute;
+	left: -999999em;
+}
+
+:focus {
+	// background: pink;
+}
+
+/*==========================
+=== Our containers
+===========================*/
+body {
+	display: grid;
+	padding-top: 2rem;
+	background: var(--main-bg);
+	grid-template-areas: 
+		"header"
+		"content"
+		"mainnav"
+	;
+}
+
+main {
+	grid-area: content;
+
+	display: grid;
+	grid-gap: 1rem;
+	// grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	grid-auto-rows: minmax(120px, auto);
+	grid-auto-flow: dense;
+
+	padding: 0 1rem;
+	
+	transition: .6s background;
+}
+
+@media all and (min-width: 40rem) {
+	body {
+		grid-template-areas: 
+		"header mainnav"
+		"content content"
+	;
+	}
+
+	main {
+		grid-template-columns: repeat(3, 1fr);	
+	}
+}
+
+@media all and (min-width: 50rem) {
+	body {
+		grid-template-areas: 
+		"header mainnav mainnav"
+		"content content content"
+		;
+	}
+
+	main {
+		grid-template-columns: repeat(4, 1fr);	
+	}
+}
+
+@media all and (min-width: 70rem) {
+	main {
+		grid-template-columns: repeat(6, 1fr);	
+	// grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+		
+	}
+}
+
+
+
+
+/*==========================
+=== Header
+===========================*/
+
+header {
+	grid-area: header;
+	// position: relative;
+	margin: 0 1.5rem;
+
+	nav {
+		// position: fixed;
+	}
+
+	h1 {}
+	p {}
+
+}
+
+
+/*==========================
+=== The navigation
+===========================*/
+
+nav {
+	grid-area: mainnav;
+	ul {
+		//  display: grid;
+		//  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+		 // grid-auto-columns: auto;
+		 // grid-template-rows: 1fr;
+		 // align-items: center;
+	}
+
+	li {
+		 list-style: none;
+	}
+
+	ul ul {
+		// position: fixed;
+		// right: 20em;
+		visibility: hidden;
+		opacity: 0;
+		height: 0;
+		
+		&:focus,
+		&:focus-within {
+			visibility: visible;
+			opacity: 1;
+			height: auto;
+		}
+	}
+}
+
+[href="/products"] {
+	&:hover,
+	&:focus,
+	&:focus-within {
+		+ul {
+			opacity: 1;
+			height: auto;
+		}
+	}	
+}
+
+/*==========================
+=== The loginform
+===========================*/
+
+/*==========================
+=== Card Main
+===========================*/
+
+article {
+	// background: var(--main-white);
+
+	border-radius: var(--border-radius);
+	padding: 1rem;
+
+	transition: .3s all;
+
+	height: min-content;
+
+	// box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+	&:focus,
+	&:hover {
+		background: rgba(0,0,0,.1);
+	}
+
+	img {
+		border-radius: var(--border-radius);
+	}
+
+}
+
+@media all and (min-width: 40rem) {
+	article {
+		&:nth-of-type(2n + 1) {
+			grid-column: span 2;
+		}
+
+		&:nth-of-type(3n + 3) {
+			grid-column: span 1;
+		}
+
+		&:nth-of-type(3n + 4) {
+			grid-column: span 2;
+		}
+	}
+}
+
+
+/*==========================
+=== Card PopUp
+===========================*/
+
+
+
+/*==========================
+=== Rating fieldset
+===========================*/
