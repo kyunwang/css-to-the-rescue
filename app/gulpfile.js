@@ -5,14 +5,14 @@ var browserSync = require('browser-sync');
 
 gulp.task('sass', function () {
 	gulp
-		.src('./styles.scss')
+		.src('./public/styles/*.scss')
 		.pipe(sass({ includePaths: ['scss'] }))
 		.pipe(beautify())
-		.pipe(gulp.dest('./'));
+		.pipe(gulp.dest('./public/styles'));
 });
 
 gulp.task('browser-sync', function () {
-	browserSync.init(['*.html', 'styles.css'], {
+	browserSync.init(['*.html', './public/styles/styles.css'], {
 		server: {
 			baseDir: './'
 		}
@@ -20,5 +20,5 @@ gulp.task('browser-sync', function () {
 });
 
 gulp.task('default', ['sass', 'browser-sync'], function () {
-	gulp.watch('./*.scss', ['sass']); // Watching all scss changes on changes in the background
+	gulp.watch('./public/styles/*.scss', ['sass']); // Watching all scss changes on changes in the background
 });
