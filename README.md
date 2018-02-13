@@ -44,6 +44,10 @@ Learning more about CSS Grid's syntax and using it in practical sense.
 ## Week 2
 ### What I've done
 - Started all over, because I now got an idea what I want to make/do
+- Started styling the component from scratch
+- Added teeny animations
+- Base for the *Home/Overview* page made
+- Base for the *Account/Login* screen set
 
 ### What I've learned
 - Learning to use keyframes
