@@ -1,23 +1,25 @@
 :root {
-    --primary-font: 'Ampersand', 'Work Sans' ,'Raleway', sans-serif;
-    --font-big2: 1.5em;
-    --font-big: 1.2em;
-    --font-normal: .9em;
-	 --font-small: .8em;
-	 
-	 // The colors
-	 --main-white: #fff;
-	 --black: rgb(81, 80, 87);
-	 --black2: rgb(107, 105, 114);
-	 --main-gray: #F2F2F4;
-	 --main-bg: #F8F9FA;
+	--primary-font: 'Ampersand', 'Work Sans' ,'Raleway', sans-serif;
+	--font-big2: 1.5em;
+	--font-big: 1.2em;
+	--font-normal: .9em;
+	--font-small: .8em;
+	
+	// The colors
+	--primary-color: #87ceeb;
+	--primary-white: #fff;
+	--black: rgb(81, 80, 87);
+	--black2: rgb(107, 105, 114);
+	--primary-gray: #F2F2F4;
+	--primary-bg: #F8F9FA;
 
-	// Other stuff....
-	 --focus-color: tomato;
+// Other stuff....
+	--focus-color: tomato;
 
-	 --border-radius: .8rem;
+	--border-radius: .8rem;
+	--border-width: 3px;
 
-	 --def-transition: .3s all;
+	--def-transition: .3s all;
 }
 
 @media all and (min-width) {
@@ -26,17 +28,17 @@
 }
 
 @font-face {
-    font-family: Ampersand;
-    src: local('Big caslon'), local('Bakery'), local('Athelas'), local('Baskerville'), local('Goudy Old Style'), local('Garamond'), local('Palatino');
-    unicode-range: U+26;
+	font-family: Ampersand;
+	src: local('Big caslon'), local('Bakery'), local('Athelas'), local('Baskerville'), local('Goudy Old Style'), local('Garamond'), local('Palatino');
+	unicode-range: U+26;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 
@@ -91,9 +93,44 @@ a {
 	left: -999999em;
 }
 
+/*==========================
+=== General focus object
+===========================*/
 :focus {
 	// background: pink;
 	// outline: none;
+}
+
+button {
+	justify-self: center;
+	width: 100%;
+	height: 2.2em;
+
+	font-size: var(--font-big);
+	font-weight: 500;
+
+	color: var(--primary-color);
+	// background: #ccc;
+	background: none;
+
+	border: var(--border-width) solid var(--primary-color);
+	border-radius: 1.1em;
+
+	transition: var(--def-transition);
+
+	&:focus,
+	&:hover {
+		// looping transition animation from color?
+		color: var(--black);
+		border-color: var(--black);
+	}
+}
+
+@media all and (min-width: 35rem) {
+	button {
+		width: 35%;
+		max-width: 20rem;
+	}
 }
 
 /*==========================
@@ -102,7 +139,7 @@ a {
 body {
 	display: grid;
 	padding-top: 2rem;
-	background: var(--main-bg);
+	background: var(--primary-bg);
 	// grid-template-areas: 
 	// 	"header"
 	// 	"content"
@@ -266,14 +303,14 @@ nav {
 			border: none;
 			padding: 0 1rem;
 			// border-radius: 2.5em;
-			// background: var(--main-white);
-			border-bottom: 0 solid skyblue;
+			// background: var(--primary-white);
+			border-bottom: 0 solid var(--primary-color);
 
 			transition: var(--def-transition);
 
 			&:focus {
 				outline: none;
-				border-bottom: 5px solid skyblue;
+				border-bottom: var(--border-width) solid var(--primary-color);
 				&::-webkit-input-placeholder {
 					opacity: 1;
 				}
@@ -284,17 +321,14 @@ nav {
 				transition: var(--def-transition);
 			}
 
-			&:placeholder-shown {
-				
-			}
-
 			&:focus + label,
 			&:not(:placeholder-shown) + label, {
 				font-size: var(--font-small);	
 				top: .6rem;			
-				color: skyblue;
+				color: var(--primary-color);
 			}
 		}
+
 	}
 
 /*==========================
@@ -302,7 +336,7 @@ nav {
 ===========================*/
 
 article {
-	// background: var(--main-white);
+	// background: var(--primary-white);
 	height: min-content;
 
 	border-radius: var(--border-radius);
@@ -324,7 +358,7 @@ article {
 
 article {
 	&:nth-of-type(even) {
-		background: var(--main-white);
+		background: var(--primary-white);
 		// display: none;
 		position: fixed;
 		top: 5%;
