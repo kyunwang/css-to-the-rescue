@@ -8,6 +8,7 @@
     --primary-white: #fff;
     --black: #515057;
     --black2: #6b6972;
+    --blacka-light: rgba(107, 105, 114, 0.7);
     --primary-gray: #F2F2F4;
     --primary-bg: #F8F9FA;
     --focus-color: tomato;
@@ -139,7 +140,7 @@ body {
     display: grid;
     padding-top: 2rem;
     background: var(--primary-bg);
-    grid-template-areas: "header mainnav" "content content";
+    grid-template-areas: "header" "mainnav" "content";
 }
 
 main {
@@ -153,6 +154,10 @@ main {
 }
 
 @media all and (min-width: 40rem) {
+    body {
+        grid-template-areas: "header mainnav" "content content";
+    }
+
     main {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -192,18 +197,21 @@ header h1 {
 ===========================*/
 nav {
     grid-area: mainnav;
-    margin: var(--def-margin-head);
     position: relative;
     align-items: end;
     align-content: end;
     justify-content: end;
     justify-items: end;
+    margin: var(--def-margin-head);
+    border-top: 1.5px solid var(--primary-color);
+    border-bottom: 1.5px solid var(--primary-color);
 }
 
 nav ul {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    flex-wrap: wrap;
+    margin: 1rem 0;
 }
 
 nav li {
@@ -216,7 +224,12 @@ nav ul ul {
     position: absolute;
     opacity: 0;
     height: 0;
+    width: 15rem;
+    border-radius: var(--border-radius);
+    padding: .5rem 1rem;
     overflow: hidden;
+    background: var(--primary-white);
+    box-shadow: 2px 5px var(--blacka-light);
 }
 
 nav ul ul:focus, nav ul ul:focus-within, nav ul ul:hover {
@@ -225,10 +238,24 @@ nav ul ul:focus, nav ul ul:focus-within, nav ul ul:hover {
     height: auto;
 }
 
+nav ul ul li {
+    padding: .5rem 0 .5rem .5rem;
+}
+
+nav a {
+    padding: .5rem 0;
+}
+
 [href="products.html"]:hover + ul, [href="products.html"]:focus + ul, [href="products.html"]:focus-within + ul {
     visibility: visible;
     opacity: 1;
     height: auto;
+}
+
+@media all and (min-width: 40rem) {
+    nav ul {
+        width: 80%;
+    }
 }
 
 /*==========================

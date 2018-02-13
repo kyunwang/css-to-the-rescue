@@ -10,6 +10,7 @@
 	--primary-white: #fff;
 	--black: rgb(81, 80, 87);
 	--black2: rgb(107, 105, 114);
+	--blacka-light: rgba(107, 105, 114, 0.7);
 	--primary-gray: #F2F2F4;
 	--primary-bg: #F8F9FA;
 
@@ -162,15 +163,11 @@ body {
 	display: grid;
 	padding-top: 2rem;
 	background: var(--primary-bg);
-	// grid-template-areas: 
-	// 	"header"
-	// 	"content"
-	// 	"mainnav"
-	// ;
 	grid-template-areas: 
-		"header mainnav"
-		"content content"
-	;
+		"header"
+		"mainnav"
+		"content"
+	;	
 }
 
 main {
@@ -188,6 +185,12 @@ main {
 }
 
 @media all and (min-width: 40rem) {
+	body {
+		grid-template-areas: 
+		"header mainnav"
+		"content content"
+	;
+	}
 	main {
 		grid-template-columns: repeat(3, 1fr);	
 	}
@@ -241,21 +244,24 @@ header {
 
 nav {
 	grid-area: mainnav;
-	margin: var(--def-margin-head);	
-	// vertical-align: bottom;
 	position: relative;
 	align-items: end;
 	align-content: end;
 	justify-content: end;
 	justify-items: end;
+	
+	margin: var(--def-margin-head);	
+	border-top: 1.5px solid var(--primary-color);
+	border-bottom: 1.5px solid var(--primary-color);
 
 
 	ul {
 		display: flex;
 		justify-content: space-between;
-		width: 80%;
+		flex-wrap: wrap;
+		margin: 1rem 0;
 	}
-		
+	
 	li {
 		display: inline-block;
 		list-style: none;
@@ -265,20 +271,35 @@ nav {
 		// display: flex;
 		flex-direction: column;
 		position: absolute;
-		// right: 20em;
-		// visibility: hidden;
+
 		opacity: 0;
 		height: 0;
-		overflow: hidden;
+		width: 15rem;
+
+		border-radius: var(--border-radius);
+		padding: .5rem 1rem;
 		
+		overflow: hidden;
+
+		background: var(--primary-white);
+
+		box-shadow: 2px 5px var(--blacka-light);
+
 		&:focus,
 		&:focus-within,
 		&:hover {
-			// background-color: violet;
 			visibility: visible;
 			opacity: 1;
 			height: auto;
 		}
+
+		li {
+			padding: .5rem 0 .5rem .5rem;
+		}
+	}
+
+	a {
+		padding: .5rem 0;
 	}
 }
 
@@ -290,9 +311,17 @@ nav {
 			// background: darkkhaki;			
 			visibility: visible;
 			opacity: 1;
-			height: auto;
+			height: auto;						
 		}
 	}	
+}
+
+@media all and (min-width: 40rem) {
+	nav {
+		ul {
+			width: 80%;
+		}
+	}
 }
 
 /*==========================
