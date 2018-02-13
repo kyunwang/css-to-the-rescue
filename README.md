@@ -42,9 +42,15 @@ Learning more about CSS Grid's syntax and using it in practical sense.
 - Change the content
 
 ## Week 2
+### What I've done
 - Started all over, because I now got an idea what I want to make/do
 
+### What I've learned
+- Learning to use keyframes
+- Never heard about `:placeholder-shown` and `::-webkit-input-placeholder` before. Now I have 😉
+- That you cannot create a masonry layout with `CSS Grid`. 😞
 
+### What to do/planned
 
 # Components
 
