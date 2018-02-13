@@ -201,7 +201,17 @@ nav ul ul:focus, nav ul ul:focus-within {
     border-bottom: 5px solid skyblue;
 }
 
-[method="get"] input:not([type="checkbox"]):focus ~ label {
+[method="get"] input:not([type="checkbox"]):focus::-webkit-input-placeholder {
+    opacity: 1;
+}
+
+[method="get"] input:not([type="checkbox"])::-webkit-input-placeholder {
+    opacity: 0;
+    transition: var(--def-transition);
+}
+
+[method="get"] input:not([type="checkbox"]):focus + label,
+    [method="get"] input:not([type="checkbox"]):not(:placeholder-shown) + label {
     font-size: var(--font-small);
     top: .6rem;
     color: skyblue;

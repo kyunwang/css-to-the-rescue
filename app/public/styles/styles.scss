@@ -274,9 +274,22 @@ nav {
 			&:focus {
 				outline: none;
 				border-bottom: 5px solid skyblue;
+				&::-webkit-input-placeholder {
+					opacity: 1;
+				}
 			}
 
-			&:focus~label {
+			&::-webkit-input-placeholder {
+				opacity: 0;
+				transition: var(--def-transition);
+			}
+
+			&:placeholder-shown {
+				
+			}
+
+			&:focus + label,
+			&:not(:placeholder-shown) + label, {
 				font-size: var(--font-small);	
 				top: .6rem;			
 				color: skyblue;
