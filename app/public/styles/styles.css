@@ -154,10 +154,6 @@ main {
 }
 
 @media all and (min-width: 40rem) {
-    body {
-        grid-template-areas: "header mainnav" "content content";
-    }
-
     main {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -202,6 +198,7 @@ nav {
     align-content: end;
     justify-content: end;
     justify-items: end;
+    height: min-content;
     margin: var(--def-margin-head);
     border-top: 1.5px solid var(--primary-color);
     border-bottom: 1.5px solid var(--primary-color);
@@ -243,7 +240,7 @@ nav ul ul li {
 }
 
 nav a {
-    padding: .5rem 0;
+    padding: .5rem;
 }
 
 [href="products.html"]:hover + ul, [href="products.html"]:focus + ul, [href="products.html"]:focus-within + ul {
@@ -253,8 +250,23 @@ nav a {
 }
 
 @media all and (min-width: 40rem) {
+    nav ul ul {
+        width: 60%;
+        max-width: 15rem;
+    }
+}
+
+@media all and (min-width: 60rem) {
     nav ul {
-        width: 80%;
+        justify-content: flex-start;
+    }
+
+    nav ul a {
+        padding-left: 1.5rem;
+    }
+
+    nav ul > li:first-child a {
+        padding-left: .5rem;
     }
 }
 

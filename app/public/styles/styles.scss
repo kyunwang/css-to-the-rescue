@@ -185,12 +185,6 @@ main {
 }
 
 @media all and (min-width: 40rem) {
-	body {
-		grid-template-areas: 
-		"header mainnav"
-		"content content"
-	;
-	}
 	main {
 		grid-template-columns: repeat(3, 1fr);	
 	}
@@ -249,6 +243,8 @@ nav {
 	align-content: end;
 	justify-content: end;
 	justify-items: end;
+
+	height: min-content;
 	
 	margin: var(--def-margin-head);	
 	border-top: 1.5px solid var(--primary-color);
@@ -299,7 +295,7 @@ nav {
 	}
 
 	a {
-		padding: .5rem 0;
+		padding: .5rem;
 	}
 }
 
@@ -319,7 +315,26 @@ nav {
 @media all and (min-width: 40rem) {
 	nav {
 		ul {
-			width: 80%;
+			// width: 80%;
+		}
+
+		ul ul {
+			width: 60%;
+			max-width: 15rem;
+		}
+	}
+}
+
+@media all and (min-width: 60rem) {
+	nav {
+		ul {
+			justify-content: flex-start;
+			a {
+				padding-left: 1.5rem;
+			}
+			>li:first-child a {
+				padding-left: .5rem;
+			}
 		}
 	}
 }
