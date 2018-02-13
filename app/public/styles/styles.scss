@@ -1,5 +1,6 @@
 :root {
     --primary-font: 'Ampersand', 'Work Sans' ,'Raleway', sans-serif;
+    --font-big2: 1.5em;
     --font-big: 1.2em;
     --font-normal: .9em;
 	 --font-small: .8em;
@@ -92,6 +93,7 @@ a {
 
 :focus {
 	// background: pink;
+	// outline: none;
 }
 
 /*==========================
@@ -229,6 +231,58 @@ nav {
 /*==========================
 === The loginform
 ===========================*/
+
+// Should be post but we do not have a server with response here
+// Is a form element btw
+[method="get"] {
+		grid-area: content;
+		display: grid;
+		// grid-template-rows: 1fr 1fr 1fr;
+		height: 100%;
+		margin-top: 4rem;
+
+		justify-content: center;
+
+		div {
+			position: relative;
+			label {
+				position: absolute;
+				top: 30%;
+				left: 1rem;
+				font-size: var(--font-big);
+				transition: var(--def-transition);
+			}
+			
+		}
+
+		input:not([type="checkbox"]) {
+			height: 4em;
+			margin: 0 auto;
+			// width: 75%;
+			width: 90vw;
+			max-width: 35rem;;
+
+			font-size: var(--font-big);
+			border: none;
+			padding: 0 1rem;
+			// border-radius: 2.5em;
+			// background: var(--main-white);
+			border-bottom: 0 solid skyblue;
+
+			transition: var(--def-transition);
+
+			&:focus {
+				outline: none;
+				border-bottom: 5px solid skyblue;
+			}
+
+			&:focus~label {
+				font-size: var(--font-small);	
+				top: .6rem;			
+				color: skyblue;
+			}
+		}
+	}
 
 /*==========================
 === Card Main
