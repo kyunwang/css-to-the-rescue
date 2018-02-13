@@ -3,16 +3,18 @@
     --font-big: 1.2em;
     --font-normal: .9em;
     --font-small: .8em;
-    --font-big-mobile: 1.1em;
-    --font-normal-mobile: .9em;
-    --border-radius: 0;
     --main-white: #fff;
     --black: #515057;
     --black2: #6b6972;
     --main-gray: #F2F2F4;
-    --focus-color: tomato;
-    --border-radius: 1rem;
     --main-bg: #F8F9FA;
+    --focus-color: tomato;
+    --border-radius: .8rem;
+}
+
+@media all and (min-width) {
+    --font-big: 1.1em;
+  --font-small: .8em;
 }
 
 @font-face {
@@ -178,6 +180,14 @@ article img {
     border-radius: var(--border-radius);
 }
 
+article:nth-of-type(even) {
+    background: salmon;
+}
+
+article:nth-of-type(even):target {
+    background: cornflowerblue;
+}
+
 @media all and (min-width: 40rem) {
     article:nth-of-type(2n + 1) {
         grid-column: span 2;
@@ -198,3 +208,32 @@ article img {
 /*==========================
 === Rating fieldset
 ===========================*/
+fieldset {
+    text-align: center;
+    border: none;
+}
+
+fieldset label {
+    display: inline-block;
+    text-align: center;
+    font-size: 0;
+    padding: .5rem;
+}
+
+fieldset input + label svg {
+    transition: .3s all;
+    border: 0px solid var(--focus-color);
+    border-radius: 100%;
+}
+
+fieldset input:focus, fieldset input:hover {
+    outline: red;
+}
+
+fieldset input:focus + label svg, fieldset input:hover + label svg {
+    border: 3px solid var(--focus-color);
+}
+
+fieldset svg {
+    height: 2rem;
+}
