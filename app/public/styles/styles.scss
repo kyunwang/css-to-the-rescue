@@ -134,6 +134,20 @@ button {
 }
 
 /*==========================
+=== Our keyframes here please
+===========================*/
+@keyframes wobble {
+	from {
+	  transform: rotate(-5deg);
+	}
+ 
+	to {
+		transform: rotate(5deg);
+	}
+ }
+
+
+/*==========================
 === Our containers
 ===========================*/
 body {
@@ -353,36 +367,45 @@ article {
 	img {
 		border-radius: var(--border-radius);
 	}
-
+	
 }
 
-article {
-	&:nth-of-type(even) {
-		background: var(--primary-white);
-		// display: none;
-		position: fixed;
-		top: 5%;
-		max-width: 90%;
-		margin: 0 5%;
+// Easier to read like this
+article:nth-of-type(even) {	
+	position: fixed;
+	top: 5%;
+	left: 0;
+	right: 0;
+	width: 90%;
+	max-width: 35rem;
 
-		visibility: hidden;
-		opacity: 0;
+	background: var(--primary-white);
+	margin: 0 auto;
 
-		transition: var(--def-transition);
-		// transition-delay: .3s;
-		// background: salmon;
-		&:target {
-			visibility: visible;
-			opacity: 1;
-			// background: cornflowerblue;
-			box-shadow: 0 0 0 50vmax rgba(0,0,0,.3);
-		}
+	visibility: hidden;
+	opacity: 0;
+
+	transition: var(--def-transition);
+	&:target {
+		visibility: visible;
+		opacity: 1;
+		box-shadow: 0 0 0 50vmax rgba(0,0,0,.3);
 	}
 }
 
+
 // The close icon in the modal cards
 [href="#"] {
-	// color: yellow;
+	position: absolute;
+	top: .8em;
+	right: 1.8rem;
+	font-size: 2em;
+	color: var(--primary-white);
+
+	&:focus,
+	&:hover {
+		animation: wobble 1s infinite alternate ease-in-out;
+	}
 }
 
 
@@ -398,6 +421,11 @@ article {
 
 		&:nth-of-type(3n + 4) {
 			grid-column: span 2;
+		}
+
+
+		&:nth-of-type(even) {
+			// width: 
 		}
 	}
 }

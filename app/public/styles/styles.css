@@ -114,6 +114,19 @@ button:focus, button:hover {
 }
 
 /*==========================
+=== Our keyframes here please
+===========================*/
+@keyframes wobble {
+    from {
+        transform: rotate(-5deg);
+    }
+
+    to {
+        transform: rotate(5deg);
+    }
+}
+
+/*==========================
 === Our containers
 ===========================*/
 body {
@@ -266,11 +279,14 @@ article img {
 }
 
 article:nth-of-type(even) {
-    background: var(--primary-white);
     position: fixed;
     top: 5%;
-    max-width: 90%;
-    margin: 0 5%;
+    left: 0;
+    right: 0;
+    width: 90%;
+    max-width: 35rem;
+    background: var(--primary-white);
+    margin: 0 auto;
     visibility: hidden;
     opacity: 0;
     transition: var(--def-transition);
@@ -280,6 +296,18 @@ article:nth-of-type(even):target {
     visibility: visible;
     opacity: 1;
     box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.3);
+}
+
+[href="#"] {
+    position: absolute;
+    top: .8em;
+    right: 1.8rem;
+    font-size: 2em;
+    color: var(--primary-white);
+}
+
+[href="#"]:focus, [href="#"]:hover {
+    animation: wobble 1s infinite alternate ease-in-out;
 }
 
 @media all and (min-width: 40rem) {
