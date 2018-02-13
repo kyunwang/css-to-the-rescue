@@ -147,14 +147,24 @@ button {
 ===========================*/
 @keyframes wobble {
 	from {
-	  transform: rotate(-5deg);
+		transform: rotate(-5deg);
 	}
- 
+
 	to {
 		transform: rotate(5deg);
 	}
- }
+}
 
+// A happy jump
+@keyframes jumping {
+	from {
+		transform: translateY(0);
+	}
+
+	to {
+		transform: translateY(-3px);
+	}
+}
 
 /*==========================
 === Our containers
@@ -428,6 +438,11 @@ article {
 		max-height: 20rem;
 		border-radius: var(--border-radius);
 	}
+
+	&>a {
+		display: block;
+		height: 100%;
+	}
 	
 }
 
@@ -504,33 +519,60 @@ article:nth-of-type(even) {
 fieldset {
 	text-align: center;
 	border: none;
+	border-top: 1px solid var(--primary-color);
+	// border-top: 1px solid var(--black2);
 
- label {
-	 display: inline-block;
-	 text-align: center;
-	 font-size: 0;
-	 padding: .5rem;
- }
+	label {
+		display: inline-block;
+		text-align: center;
+		font-size: 0;
+		padding: .5rem;
+	}
 
- input {
-	 &+label {
-		 svg {
-			 transition: var(--def-transition);
-			 border: 0px solid var(--focus-color);
-			 border-radius: 100%;
-		 }
-	 }
+	// Is a radiobtn
+	input {
+		&+label {
+			svg {
+				border: 0px solid var(--focus-color);
+				border-radius: 100%;
+				transition: var(--def-transition);
+			}
+		}
 
-	 &:focus,
-	 &:hover {
-		 outline: red;
-		 &+label svg {
-			 border: 3px solid var(--focus-color);
-		 }
-	 }
- }
+		&:focus,
+		&:hover {
+			// outline: red;
 
- svg {
-	 height: 2rem;
- }
+			&+label svg {
+				// border: 3px solid var(--focus-color);
+				opacity: 1;
+			}
+		}
+	}
+
+	svg {
+		height: 2rem;
+		opacity: .5;
+
+		// animation: jumping 1s infinite alternate ease-in-out;
+	}
+}
+
+legend {
+	padding: 0 1em;
+}
+
+[type="radio"] {
+	&:checked {
+		+label svg {
+			// border: 3px solid var(--focus-color);
+			// border: 3px solid purple;
+			opacity: 1;
+			transform: scale(1.1);
+
+		animation: jumping .6s infinite alternate ease-out;
+		// animation: wobble 1s infinite alternate ease-in-out;
+			
+		}
+	}
 }
