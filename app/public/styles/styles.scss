@@ -15,6 +15,8 @@
 	 --focus-color: tomato;
 
 	 --border-radius: .8rem;
+
+	 --def-transition: .3s all;
 }
 
 @media all and (min-width) {
@@ -80,7 +82,7 @@ ul {
 }
 
 a {
-
+	text-decoration: none;
 }
 
 [type="radio"] {
@@ -116,7 +118,8 @@ main {
 
 	padding: 0 1rem;
 	
-	transition: .6s background;
+	// transition: .6s background;
+	transition: var(--def-transition);
 }
 
 @media all and (min-width: 40rem) {
@@ -229,14 +232,12 @@ nav {
 
 article {
 	// background: var(--main-white);
+	height: min-content;
 
 	border-radius: var(--border-radius);
 	padding: 1rem;
-
-	transition: .3s all;
-
-	height: min-content;
-
+	
+	transition: var(--def-transition);
 	// box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
 	&:focus,
@@ -252,14 +253,31 @@ article {
 
 article {
 	&:nth-of-type(even) {
+		background: var(--main-white);
 		// display: none;
-		// position: fixed;
-		// max-width: 15rem;
-		background: salmon;
+		position: fixed;
+		top: 5%;
+		max-width: 90%;
+		margin: 0 5%;
+
+		visibility: hidden;
+		opacity: 0;
+
+		transition: var(--def-transition);
+		// transition-delay: .3s;
+		// background: salmon;
 		&:target {
-			background: cornflowerblue;
+			visibility: visible;
+			opacity: 1;
+			// background: cornflowerblue;
+			box-shadow: 0 0 0 50vmax rgba(0,0,0,.3);
 		}
 	}
+}
+
+// The close icon in the modal cards
+[href="#"] {
+	// color: yellow;
 }
 
 
@@ -303,7 +321,7 @@ fieldset {
  input {
 	 &+label {
 		 svg {
-			 transition: .3s all;
+			 transition: var(--def-transition);
 			 border: 0px solid var(--focus-color);
 			 border-radius: 100%;
 		 }
