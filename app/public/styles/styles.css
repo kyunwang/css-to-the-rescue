@@ -11,6 +11,7 @@
     --primary-gray: #F2F2F4;
     --primary-bg: #F8F9FA;
     --focus-color: tomato;
+    --def-margin-head: 0 1.5rem 2rem 1.5rem;
     --border-radius: .8rem;
     --border-width: 3px;
     --def-transition: .3s all;
@@ -40,13 +41,13 @@
 ===========================*/
 html {
     font-family: var(--primary-font);
+    color: var(--black);
 }
 
 h1 {
     font-size: var(--font-big);
     font-weight: 900;
     margin: 0;
-    color: var(--black);
 }
 
 p {
@@ -78,6 +79,11 @@ ul {
 
 a {
     text-decoration: none;
+    color: var(--black);
+}
+
+a:focus, a:hover {
+    color: var(--primary-color);
 }
 
 [type="radio"] {
@@ -173,7 +179,12 @@ main {
 ===========================*/
 header {
     grid-area: header;
-    margin: 0 1.5rem;
+    margin: var(--def-margin-head);
+    color: var(--black);
+}
+
+header h1 {
+    font-size: 3em;
 }
 
 /*==========================
@@ -181,25 +192,41 @@ header {
 ===========================*/
 nav {
     grid-area: mainnav;
+    margin: var(--def-margin-head);
+    position: relative;
+    align-items: end;
+    align-content: end;
+    justify-content: end;
+    justify-items: end;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
 }
 
 nav li {
+    display: inline-block;
     list-style: none;
 }
 
 nav ul ul {
-    visibility: hidden;
+    flex-direction: column;
+    position: absolute;
     opacity: 0;
     height: 0;
+    overflow: hidden;
 }
 
-nav ul ul:focus, nav ul ul:focus-within {
+nav ul ul:focus, nav ul ul:focus-within, nav ul ul:hover {
     visibility: visible;
     opacity: 1;
     height: auto;
 }
 
-[href="/products"]:hover + ul, [href="/products"]:focus + ul, [href="/products"]:focus-within + ul {
+[href="products.html"]:hover + ul, [href="products.html"]:focus + ul, [href="products.html"]:focus-within + ul {
+    visibility: visible;
     opacity: 1;
     height: auto;
 }
@@ -275,6 +302,7 @@ article:focus, article:hover {
 }
 
 article img {
+    max-height: 20rem;
     border-radius: var(--border-radius);
 }
 
