@@ -14,66 +14,58 @@
 
 <body>
 	<header>
-		<h1>Food &amp; Me</h1>
+		<h1>
+			<a href="/">Food &amp; Me</a>
+		</h1>
 		<p>Look at pictures of food</p>
 
-		<!-- Navigation -->
-		<nav>
-			<ul>
-				<li>
-					<a href="#main-content" aria-label="Home, current page">Home</a>
-				</li>
-				<li>
-					<a href="/products">Products</a>
-
-					<ul>
-						<li>
-							<a href="/products/rock">Rock</a>
-						</li>
-						<li>
-							<a href="/products/paper">Paper</a>
-						</li>
-						<li>
-							<a href="/products/scissors">Scissors</a>
-						</li>
-					</ul>
-
-				</li>
-				<li>
-					<a href="/about">About</a>
-				</li>
-				<li>
-					<a href="/contact">Contact</a>
-				</li>
-				<!-- <li>
-					<a href="#media-item">Media item</a>
-				</li>
-				<li>
-					<a href="#pic-with-sub">Picture with subtitle</a>
-				</li> -->
-				<li>
-					<a href="#login-modal">Account</a>
-				</li>
-			</ul>
-		</nav>
 	</header>
+	<!-- Navigation -->
+	<nav>
+		<ul>
+			<li>
+				<a href="#main-content" aria-label="Home, current page">Home</a>
+			</li>
+			<li>
+				<a href="/products.html">Products</a>
 
-	
+				<ul>
+					<li>
+						<a href="/products/rock">Rock</a>
+					</li>
+					<li>
+						<a href="/products/paper">Paper</a>
+					</li>
+					<li>
+						<a href="/products/scissors">Scissors</a>
+					</li>
+				</ul>
+
+			</li>
+			<li>
+				<a href="/contact.html">Contact</a>
+			</li>
+			<li>
+				<a href="/account.html">Account</a>
+			</li>
+		</ul>
+	</nav>
+
+
 	<main>
 		<!-- Login -->
 		<form action="/" method="post" id="login-modal">
-			<a href="#">close</a>
 			<label for="field-email">Email</label>
 			<input type="email" id="field-email" name="field-email" autocomplete="email" required autofocus>
-	
+
 			<label for="field-password">Password</label>
 			<input type="password" id="field-password" name="field-password" required>
-	
+
 			<input type="checkbox" id="field-stay-logged-in" name="field-stay-logged-in" value="stay-logged-in">
 			<label for="field-stay-logged-in">Stay logged in</label>
-	
+
 			<a href="/">Forgot password</a>
-	
+
 			<button type="submit">Login</button>
 		</form>
 	</main>

@@ -89,7 +89,7 @@ body {
     display: grid;
     padding-top: 2rem;
     background: var(--main-bg);
-    grid-template-areas: "header" "content" "mainnav";
+    grid-template-areas: "header mainnav" "content content";
 }
 
 main {
@@ -103,10 +103,6 @@ main {
 }
 
 @media all and (min-width: 40rem) {
-    body {
-        grid-template-areas: "header mainnav" "content content";
-    }
-
     main {
         grid-template-columns: repeat(3, 1fr);
     }
