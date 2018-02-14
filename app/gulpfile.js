@@ -17,6 +17,9 @@ gulp.task('browser-sync', function () {
 			baseDir: './'
 		},
 		port: 4000,
+		ui: {
+			port: 4001
+		}
 	});
 });
 
