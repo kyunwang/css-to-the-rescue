@@ -355,9 +355,9 @@ article img {
     border-radius: var(--border-radius);
 }
 
-article > a {
+article:nth-of-type(odd) > a {
     display: block;
-    height: min-content;
+    height: 100%;
 }
 
 article:nth-of-type(even) {

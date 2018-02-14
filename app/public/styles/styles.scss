@@ -439,11 +439,13 @@ article {
 		border-radius: var(--border-radius);
 	}
 
+}
+
+article:nth-of-type(odd) {
 	&>a {
 		display: block;
 		height: 100%;
 	}
-	
 }
 
 // Easier to read like this
