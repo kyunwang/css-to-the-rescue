@@ -235,6 +235,7 @@ nav ul ul {
     border-radius: var(--border-radius);
     padding: .5rem 1rem;
     overflow: hidden;
+    z-index: 1;
     background: var(--primary-white);
     box-shadow: 2px 5px var(--blacka-light);
 }
@@ -339,26 +340,36 @@ article {
     position: relative;
     height: min-content;
     border-radius: var(--border-radius);
-    padding: 1rem;
-    transition: var(--def-transition);
 }
 
-article img, article div {
+article a {
+    transition: var(--def-transition);
+    border-radius: var(--border-radius);
+}
+
+article img {
     max-height: 20rem;
     border-radius: var(--border-radius);
 }
 
-article:nth-of-type(odd):focus, article:nth-of-type(odd):hover {
+article:nth-of-type(odd) > a {
+    outline: none;
+    display: block;
+    height: 100%;
+    color: inherit;
+    padding: 1rem;
+}
+
+article:nth-of-type(odd) > a:focus, article:nth-of-type(odd) > a:hover {
     background: rgba(0, 0, 0, 0.1);
 }
 
-article:nth-of-type(odd):focus::before, article:nth-of-type(odd):hover::before {
+article:nth-of-type(odd) > a:focus::before, article:nth-of-type(odd) > a:hover::before {
     transform: rotate(3deg) translate(0.8rem, -0.8rem);
 }
 
-article:nth-of-type(odd)::before {
+article:nth-of-type(odd) > a::before {
     content: "";
-    z-index: -1;
     position: absolute;
     height: 100%;
     max-height: 20rem;
@@ -366,13 +377,8 @@ article:nth-of-type(odd)::before {
     background: red;
     background: rgba(0, 0, 0, 0.2);
     border-radius: inherit;
+    z-index: -1;
     transition: var(--def-transition);
-}
-
-article:nth-of-type(odd) > a {
-    display: block;
-    height: 100%;
-    color: inherit;
 }
 
 article:nth-of-type(even) {
@@ -384,8 +390,10 @@ article:nth-of-type(even) {
     max-width: 35rem;
     background: var(--primary-white);
     margin: 0 auto;
+    padding: 1rem;
     visibility: hidden;
     opacity: 0;
+    z-index: 100;
     transition: var(--def-transition);
 }
 
