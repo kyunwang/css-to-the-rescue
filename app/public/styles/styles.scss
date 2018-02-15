@@ -8,6 +8,7 @@
 	// The colors
 	--primary-color: #87ceeb;
 	--primary-white: #fff;
+	--blue: #3AA5F6;
 	--black: rgb(81, 80, 87);
 	--black2: rgb(107, 105, 114);
 	--blacka-light: rgba(107, 105, 114, 0.7);
@@ -177,6 +178,7 @@ body {
 		"header"
 		"mainnav"
 		"content"
+		"footer"
 	;	
 }
 
@@ -205,6 +207,7 @@ main {
 		grid-template-areas: 
 		"header mainnav mainnav"
 		"content content content"
+		"footer footer footer"
 		;
 	}
 
@@ -358,86 +361,84 @@ nav {
 // Should be post but we do not have a server with response here
 // Is a form element btw
 [method="get"] {
-		grid-area: content;
-		display: grid;
-		// grid-template-rows: 1fr 1fr 1fr;
-		height: 100%;
-		margin-top: 4rem;
+	grid-area: content;
+	display: grid;
+	// grid-template-rows: 1fr 1fr 1fr;
+	height: 100%;
+	margin-top: 4rem;
 
-		justify-content: center;
+	justify-content: center;
 
-		div {
-			position: relative;
-			label {
-				position: absolute;
-				top: 30%;
-				left: 1rem;
-				font-size: var(--font-big);
-				transition: var(--def-transition);
-			}
-			
-			&:last-of-type {
-				display: flex;
-				// background: red;
-				justify-content: center;
-				margin: .5rem 0;
-
-				label {
-					position: initial;
-					font-size: var(--font-normal);
-				}
-			}
-		}
-
-		&>a {
-			margin: .5rem auto 0 auto;
-			font-size: var(--font-normal);
-		}
-
-		[type="checkbox"] {
-			padding: 1rem;
-		}
-
-		input:not([type="checkbox"]) {
-			height: 4em;
-			margin: 0 auto;
-			// width: 75%;
-			width: 90vw;
-			max-width: 35rem;;
-
+	div {
+		position: relative;
+		label {
+			position: absolute;
+			top: 30%;
+			left: 1rem;
 			font-size: var(--font-big);
-			border: none;
-			padding: 0 1rem;
-			padding-top: 1rem;
-			// border-radius: 2.5em;
-			// background: var(--primary-white);
-			border-bottom: 0 solid var(--primary-color);
-
 			transition: var(--def-transition);
+		}
+		
+		&:last-of-type {
+			display: flex;
+			// background: red;
+			justify-content: center;
+			margin: .5rem 0;
 
-			&:focus {
-				outline: none;
-				border-bottom: var(--border-width) solid var(--primary-color);
-				&::-webkit-input-placeholder {
-					opacity: 1;
-				}
+			label {
+				position: initial;
+				font-size: var(--font-normal);
 			}
+		}
+	}
 
+	&>a {
+		margin: .5rem auto 0 auto;
+		font-size: var(--font-normal);
+	}
+
+	[type="checkbox"] {
+		padding: 1rem;
+	}
+
+	input:not([type="checkbox"]) {
+		height: 4em;
+		margin: 0 auto;
+		// width: 75%;
+		width: 90vw;
+		max-width: 35rem;
+
+		font-size: var(--font-big);
+		border: none;
+		padding: 0 1rem;
+		padding-top: 1rem;
+		// border-radius: 2.5em;
+		// background: var(--primary-white);
+		border-bottom: 0 solid var(--primary-color);
+
+		transition: var(--def-transition);
+
+		&:focus {
+			outline: none;
+			border-bottom: var(--border-width) solid var(--primary-color);
 			&::-webkit-input-placeholder {
-				opacity: 0;
-				transition: var(--def-transition);
-			}
-
-			&:focus + label,
-			&:not(:placeholder-shown) + label, {
-				font-size: var(--font-small);	
-				top: .6rem;			
-				color: var(--primary-color);
+				opacity: 1;
 			}
 		}
 
+		&::-webkit-input-placeholder {
+			opacity: 0;
+			transition: var(--def-transition);
+		}
 
+		&:focus + label,
+		&:not(:placeholder-shown) + label, {
+			font-size: var(--font-small);	
+			top: .6rem;			
+			color: var(--primary-color);
+		}
 	}
+}
 
 /*==========================
 === Card Main
@@ -559,13 +560,6 @@ article:nth-of-type(even) {
 	}
 }
 
-
-/*==========================
-=== Card PopUp
-===========================*/
-
-
-
 /*==========================
 === Rating fieldset
 ===========================*/
@@ -628,4 +622,97 @@ legend {
 			
 		}
 	}
+}
+
+
+
+/*==========================
+=== Chat/Contact
+===========================*/
+
+ol {
+	grid-area: content;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	// width: 75%;
+	width: 90vw;
+	max-width: 35rem;
+
+	li {
+		display: inline-block;
+		max-width: 18rem;
+
+		margin-bottom: .5rem;
+
+		&>p {
+			padding: 1rem;
+			border-radius: 1rem;
+		}
+		
+		&:nth-of-type(odd) {
+			&>p {
+				background-color: var(--primary-gray);
+			}
+			
+			// align-self: end;
+			margin-left: auto;
+			// text-align: end;
+		}
+		
+		&:nth-of-type(even) {
+			&>p {
+				background-color: var(--blue);
+				color: var(--primary-white);
+			}
+		}
+
+		p {}
+
+		footer {
+			margin-top: .3rem;
+			p {
+				font-size: var(--font-small);
+				padding: 0 1rem;
+			}
+		}
+	}
+	
+
+	&+form {
+		grid-area: footer;
+		align-self: center;
+		justify-self: center;
+
+		width: 90vw;
+		max-width: 35rem;
+
+		margin-top: 1.5rem;
+
+		label {
+			position: absolute;
+			visibility: hidden;
+		}
+
+		button {
+			width: 90vw;
+			max-width: 35rem;
+		}
+	}
+}
+
+textarea {
+	font-size: var(--font-normal);
+	width: 100%;
+	max-width: 35rem;
+	height: 3rem;
+
+	background: var(--primary-white);
+
+	margin: 0 auto;
+	margin-bottom: 1rem;
+	
+	border: none;
+	border-radius: 1.5rem;
+	padding: 1rem;
 }

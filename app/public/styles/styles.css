@@ -6,6 +6,7 @@
     --font-small: .8em;
     --primary-color: #87ceeb;
     --primary-white: #fff;
+    --blue: #3AA5F6;
     --black: #515057;
     --black2: #6b6972;
     --blacka-light: rgba(107, 105, 114, 0.7);
@@ -150,7 +151,7 @@ body {
     display: grid;
     padding-top: 2rem;
     background: var(--primary-bg);
-    grid-template-areas: "header" "mainnav" "content";
+    grid-template-areas: "header" "mainnav" "content" "footer";
 }
 
 main {
@@ -171,7 +172,7 @@ main {
 
 @media all and (min-width: 50rem) {
     body {
-        grid-template-areas: "header mainnav mainnav" "content content content";
+        grid-template-areas: "header mainnav mainnav" "content content content" "footer footer footer";
     }
 
     main {
@@ -451,9 +452,6 @@ article:nth-of-type(even):target {
 }
 
 /*==========================
-=== Card PopUp
-===========================*/
-/*==========================
 === Rating fieldset
 ===========================*/
 fieldset {
@@ -492,4 +490,81 @@ legend {
     opacity: 1;
     transform: scale(1.1);
     animation: jumping .6s infinite alternate ease-out;
+}
+
+/*==========================
+=== Chat/Contact
+===========================*/
+ol {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90vw;
+    max-width: 35rem;
+}
+
+ol li {
+    display: inline-block;
+    max-width: 18rem;
+    margin-bottom: .5rem;
+}
+
+ol li > p {
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+ol li:nth-of-type(odd) {
+    margin-left: auto;
+}
+
+ol li:nth-of-type(odd) > p {
+    background-color: var(--primary-gray);
+}
+
+ol li:nth-of-type(even) > p {
+    background-color: var(--blue);
+    color: var(--primary-white);
+}
+
+ol li footer {
+    margin-top: .3rem;
+}
+
+ol li footer p {
+    font-size: var(--font-small);
+    padding: 0 1rem;
+}
+
+ol + form {
+    grid-area: footer;
+    align-self: center;
+    justify-self: center;
+    width: 90vw;
+    max-width: 35rem;
+    margin-top: 1.5rem;
+}
+
+ol + form label {
+    position: absolute;
+    visibility: hidden;
+}
+
+ol + form button {
+    width: 90vw;
+    max-width: 35rem;
+}
+
+textarea {
+    font-size: var(--font-normal);
+    width: 100%;
+    max-width: 35rem;
+    height: 3rem;
+    background: var(--primary-white);
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1rem;
 }
