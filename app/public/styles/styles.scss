@@ -651,6 +651,11 @@ ol {
 
 		margin-bottom: 1rem;
 
+		&>h1 {
+			font-size: calc(var(--font-big) * 2);
+			margin: 2rem 0;
+		}
+
 		&>p {
 			padding: 1rem;
 			border-radius: 1rem;
@@ -671,6 +676,10 @@ ol {
 				background-color: var(--blue);
 				color: var(--primary-white);
 			}
+		}
+
+		&:first-of-type {
+			margin: 0;
 		}
 
 		p {}

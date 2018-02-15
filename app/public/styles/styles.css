@@ -516,6 +516,11 @@ ol li {
     margin-bottom: 1rem;
 }
 
+ol li > h1 {
+    font-size: calc(var(--font-big) * 2);
+    margin: 2rem 0;
+}
+
 ol li > p {
     padding: 1rem;
     border-radius: 1rem;
@@ -532,6 +537,10 @@ ol li:nth-of-type(odd) > p {
 ol li:nth-of-type(even) > p {
     background-color: var(--blue);
     color: var(--primary-white);
+}
+
+ol li:first-of-type {
+    margin: 0;
 }
 
 ol li footer {
