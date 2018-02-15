@@ -81,7 +81,8 @@ figure {
 figure > img { max-width: inherit; }
 
 figcaption {
-    padding: 1.5rem;
+	 padding: 1.5rem;
+	 padding-top: 1rem;
 }
 
 ul {
@@ -111,7 +112,7 @@ a {
 
 	&:focus,
 	&:hover {
-		color: var(--primary-color);
+		// color: var(--primary-color);
 	}
 
 
@@ -154,6 +155,42 @@ button {
 		border-color: var(--black);
 	}
 }
+
+
+/* Out default behaviour for links*/
+nav,
+article footer,
+header,
+form {
+	a {
+		display: inline-block;
+		position: relative;
+		transition: var(--def-transition);
+		border-radius: initial;
+		overflow: hidden;
+		
+		&:focus,
+		&:hover {
+			outline: none;
+			&::before {
+				transform: translateX(0);
+			}
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: .1em;
+			width: 100%;
+			height: .3em;
+			background: var(--primary-color);
+			transition: var(--def-transition) ease-in;
+			transform: translateX(-100%);
+			z-index: -1
+		}
+	}
+}
+
 
 @media all and (min-width: 35rem) {
 	button {
@@ -261,6 +298,12 @@ header {
 		font-size: 3em;
 	}
 
+	// a {
+	// 	&:focus {
+	// 		outline: none;
+	// 	}
+	// }
+
 }
 
 
@@ -330,7 +373,7 @@ nav:first-of-type {
 	}
 
 	a {
-		padding: .5rem;
+		margin: .5rem;
 	}
 }
 
@@ -367,7 +410,7 @@ nav:first-of-type {
 			justify-content: flex-start;
 
 			>li:first-child a {
-				padding-left: .5rem;
+				margin-left: .5rem;
 			}
 		}
 	}
@@ -385,8 +428,32 @@ nav:first-of-type {
 		border-radius: var(--border-radius);
 		
 		a {
+			display: inline-block;
+			position: relative;
 			transition: var(--def-transition);
 			border-radius: var(--border-radius);
+			overflow: hidden;
+			
+			// &:focus,
+			// &:hover {
+			// 	outline: 0;
+				
+			// 	&::before {
+			// 		transform: translateX(0);
+			// 	}
+			// }
+
+			// &::before {
+			// 	content: "";
+			// 	position: absolute;
+			// 	bottom: 0;
+			// 	width: 100%;
+			// 	height: .3em;
+			// 	background: var(--primary-color);
+			// 	transition: var(--def-transition) ease-in;
+			// 	transform: translateX(-100%);
+			// }
+			
 		}
 		
 		// padding: 1rem;
@@ -396,15 +463,20 @@ nav:first-of-type {
 			border-radius: var(--border-radius);
 		}
 
+		h1, p, footer {
+			margin-top: .3em;
+		}
+
 	}
 
-	article:nth-of-type(odd) {	
+	article:nth-of-type(odd) {
 		&>a {
-			outline: none;
 			display: block;
 			height: 100%;
 			color: inherit;
 			padding: 1rem;
+			overflow: visible;
+
 			&:focus,
 			&:hover {
 				background: rgba(0,0,0,.1);
@@ -453,6 +525,13 @@ nav:first-of-type {
 			visibility: visible;
 			opacity: 1;
 			box-shadow: 0 0 0 50vmax rgba(0,0,0,.3);
+		}
+
+		&>a {
+			&:focus,
+			&:hover {
+				color: var(--primary-color);
+			}
 		}
 	}
 

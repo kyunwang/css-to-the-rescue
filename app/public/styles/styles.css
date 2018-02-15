@@ -75,6 +75,7 @@ figure > img {
 
 figcaption {
     padding: 1.5rem;
+    padding-top: 1rem;
 }
 
 ul {
@@ -98,10 +99,6 @@ progress {
 a {
     text-decoration: none;
     color: var(--black);
-}
-
-a:focus, a:hover {
-    color: var(--primary-color);
 }
 
 [type="radio"] {
@@ -128,6 +125,53 @@ button {
 button:focus, button:hover {
     color: var(--black);
     border-color: var(--black);
+}
+
+/* Out default behaviour for links*/
+nav a,
+article footer a,
+header a,
+form a {
+    display: inline-block;
+    position: relative;
+    transition: var(--def-transition);
+    border-radius: initial;
+    overflow: hidden;
+}
+
+nav a:focus, nav a:hover,
+  article footer a:focus,
+  article footer a:hover,
+  header a:focus,
+  header a:hover,
+  form a:focus,
+  form a:hover {
+    outline: none;
+}
+
+nav a:focus::before, nav a:hover::before,
+    article footer a:focus::before,
+    article footer a:hover::before,
+    header a:focus::before,
+    header a:hover::before,
+    form a:focus::before,
+    form a:hover::before {
+    transform: translateX(0);
+}
+
+nav a::before,
+  article footer a::before,
+  header a::before,
+  form a::before {
+    content: "";
+    position: absolute;
+    bottom: .1em;
+    width: 100%;
+    height: .3em;
+    background: var(--primary-color);
+    transition: var(--def-transition) ease-in;
+    transform: translateX(-100%);
+    z-index: -1;
 }
 
 @media all and (min-width: 35rem) {
@@ -269,7 +313,7 @@ nav:first-of-type ul ul li {
 }
 
 nav:first-of-type a {
-    padding: .5rem;
+    margin: .5rem;
 }
 
 [href="products.html"]:hover + ul, [href="products.html"]:focus + ul, [href="products.html"]:focus-within + ul {
@@ -292,7 +336,7 @@ nav:first-of-type a {
     }
 
     nav ul > li:first-child a {
-        padding-left: .5rem;
+        margin-left: .5rem;
     }
 }
 
@@ -306,8 +350,11 @@ article {
 }
 
 article a {
+    display: inline-block;
+    position: relative;
     transition: var(--def-transition);
     border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
 article img {
@@ -315,12 +362,16 @@ article img {
     border-radius: var(--border-radius);
 }
 
+article h1, article p, article footer {
+    margin-top: .3em;
+}
+
 article:nth-of-type(odd) > a {
-    outline: none;
     display: block;
     height: 100%;
     color: inherit;
     padding: 1rem;
+    overflow: visible;
 }
 
 article:nth-of-type(odd) > a:focus, article:nth-of-type(odd) > a:hover {
@@ -364,6 +415,10 @@ article:nth-of-type(even):target {
     visibility: visible;
     opacity: 1;
     box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.3);
+}
+
+article:nth-of-type(even) > a:focus, article:nth-of-type(even) > a:hover {
+    color: var(--primary-color);
 }
 
 [href="#"] {
