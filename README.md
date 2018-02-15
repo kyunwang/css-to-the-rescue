@@ -2,6 +2,11 @@
 This repo is for a course from the Minor: Everything Web called CSS To The Rescue.
 The main goal of this course is to only use CSS selectors, meaning no classes, id's ect. and to make the components/site keyboard accessible.
 
+
+Purpose:
+Learn and explore more of CSS
+Accessibility using keyboard
+
 # Proces
 The process and planning.
 

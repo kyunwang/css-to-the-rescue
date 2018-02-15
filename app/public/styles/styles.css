@@ -285,8 +285,13 @@ nav a {
     grid-area: content;
     display: grid;
     height: 100%;
-    margin-top: 4rem;
+    margin-top: 2rem;
     justify-content: center;
+}
+
+[method="get"] h1 {
+    font-size: calc(var(--font-big) * 2);
+    margin-bottom: 1rem;
 }
 
 [method="get"] div {
@@ -304,7 +309,7 @@ nav a {
 [method="get"] div:last-of-type {
     display: flex;
     justify-content: center;
-    margin: .5rem 0;
+    margin: 1rem 0;
 }
 
 [method="get"] div:last-of-type label {
@@ -313,7 +318,7 @@ nav a {
 }
 
 [method="get"] > a {
-    margin: .5rem auto 0 auto;
+    margin: 1rem auto 0 auto;
     font-size: var(--font-normal);
 }
 
@@ -327,6 +332,7 @@ nav a {
     width: 90vw;
     max-width: 35rem;
     font-size: var(--font-big);
+    margin-bottom: 1.5rem;
     border: none;
     padding: 0 1rem;
     padding-top: 1rem;
@@ -507,7 +513,7 @@ ol {
 ol li {
     display: inline-block;
     max-width: 18rem;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
 }
 
 ol li > p {
