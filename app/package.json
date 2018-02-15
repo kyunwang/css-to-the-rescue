@@ -4,7 +4,8 @@
 	"description": "Rating example makes use of Emoji from: http://emojione.com",
 	"main": "index.js",
 	"scripts": {
-		"start": "gulp"
+		"start": "gulp",
+		"push": "git push && git checkout master && git merge develop && git push && git checkout develop"
 	},
 	"repository": {
 		"type": "git",
