@@ -16,6 +16,8 @@
     --def-margin-head: 0 1.5rem 2rem 1.5rem;
     --border-radius: .8rem;
     --border-width: 3px;
+    --max-width: 35rem;
+    --width-constrain: 90vw;
     --def-transition: .3s all;
 }
 
@@ -77,6 +79,20 @@ figcaption {
 
 ul {
     padding: 0;
+}
+
+ol {
+    display: flex;
+    margin: 0 auto;
+    width: var(--width-constrain);
+    max-width: var(--max-width);
+}
+
+progress {
+    display: flex;
+    margin: 0 auto;
+    width: var(--width-constrain);
+    max-width: var(--max-width);
 }
 
 a {
@@ -202,7 +218,7 @@ header h1 {
 /*==========================
 === The navigation
 ===========================*/
-nav {
+nav:first-of-type {
     grid-area: mainnav;
     position: relative;
     align-items: end;
@@ -215,43 +231,44 @@ nav {
     border-bottom: 1.5px solid var(--primary-color);
 }
 
-nav ul {
+nav:first-of-type ul {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 1rem 0;
 }
 
-nav li {
+nav:first-of-type li {
     display: inline-block;
+    position: relative;
     list-style: none;
 }
 
-nav ul ul {
+nav:first-of-type ul ul {
     flex-direction: column;
     position: absolute;
     opacity: 0;
     height: 0;
-    width: 15rem;
+    width: 10rem;
     border-radius: var(--border-radius);
-    padding: .5rem 1rem;
     overflow: hidden;
     z-index: 1;
     background: var(--primary-white);
     box-shadow: 2px 5px var(--blacka-light);
 }
 
-nav ul ul:focus, nav ul ul:focus-within, nav ul ul:hover {
+nav:first-of-type ul ul:focus, nav:first-of-type ul ul:focus-within, nav:first-of-type ul ul:hover {
     visibility: visible;
     opacity: 1;
     height: auto;
+    padding: .5rem 1rem;
 }
 
-nav ul ul li {
+nav:first-of-type ul ul li {
     padding: .5rem 0 .5rem .5rem;
 }
 
-nav a {
+nav:first-of-type a {
     padding: .5rem;
 }
 
@@ -259,6 +276,7 @@ nav a {
     visibility: visible;
     opacity: 1;
     height: auto;
+    padding: .5rem 1rem;
 }
 
 @media all and (min-width: 40rem) {
@@ -276,89 +294,6 @@ nav a {
     nav ul > li:first-child a {
         padding-left: .5rem;
     }
-}
-
-/*==========================
-=== The loginform
-===========================*/
-[method="get"] {
-    grid-area: content;
-    display: grid;
-    height: 100%;
-    margin-top: 2rem;
-    justify-content: center;
-}
-
-[method="get"] h1 {
-    font-size: calc(var(--font-big) * 2);
-    margin-bottom: 1rem;
-}
-
-[method="get"] div {
-    position: relative;
-}
-
-[method="get"] div label {
-    position: absolute;
-    top: 30%;
-    left: 1rem;
-    font-size: var(--font-big);
-    transition: var(--def-transition);
-}
-
-[method="get"] div:last-of-type {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
-}
-
-[method="get"] div:last-of-type label {
-    position: initial;
-    font-size: var(--font-normal);
-}
-
-[method="get"] > a {
-    margin: 1rem auto 0 auto;
-    font-size: var(--font-normal);
-}
-
-[method="get"] [type="checkbox"] {
-    padding: 1rem;
-}
-
-[method="get"] input:not([type="checkbox"]) {
-    height: 4em;
-    margin: 0 auto;
-    width: 90vw;
-    max-width: 35rem;
-    font-size: var(--font-big);
-    margin-bottom: 1.5rem;
-    border: none;
-    padding: 0 1rem;
-    padding-top: 1rem;
-    border-bottom: 0 solid var(--primary-color);
-    transition: var(--def-transition);
-}
-
-[method="get"] input:not([type="checkbox"]):focus {
-    outline: none;
-    border-bottom: var(--border-width) solid var(--primary-color);
-}
-
-[method="get"] input:not([type="checkbox"]):focus::-webkit-input-placeholder {
-    opacity: 1;
-}
-
-[method="get"] input:not([type="checkbox"])::-webkit-input-placeholder {
-    opacity: 0;
-    transition: var(--def-transition);
-}
-
-[method="get"] input:not([type="checkbox"]):focus + label,
-    [method="get"] input:not([type="checkbox"]):not(:placeholder-shown) + label {
-    font-size: var(--font-small);
-    top: .6rem;
-    color: var(--primary-color);
 }
 
 /*==========================
@@ -415,7 +350,7 @@ article:nth-of-type(even) {
     left: 0;
     right: 0;
     width: 90%;
-    max-width: 35rem;
+    max-width: var(--max-width);
     background: var(--primary-white);
     margin: 0 auto;
     padding: 1rem;
@@ -444,15 +379,15 @@ article:nth-of-type(even):target {
 }
 
 @media all and (min-width: 40rem) {
-    article:nth-of-type(2n + 1) {
+    main article:nth-of-type(2n + 1) {
         grid-column: span 2;
     }
 
-    article:nth-of-type(3n + 3) {
+    main article:nth-of-type(3n + 3) {
         grid-column: span 1;
     }
 
-    article:nth-of-type(3n + 4) {
+    main article:nth-of-type(3n + 4) {
         grid-column: span 2;
     }
 }
@@ -501,80 +436,76 @@ legend {
 /*==========================
 === Chat/Contact
 ===========================*/
-ol {
+nav + ol {
     grid-area: content;
-    display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    width: 90vw;
-    max-width: 35rem;
 }
 
-ol li {
+nav + ol li {
     display: inline-block;
     max-width: 18rem;
     margin-bottom: 1rem;
 }
 
-ol li > h1 {
+nav + ol li > h1 {
     font-size: calc(var(--font-big) * 2);
     margin: 2rem 0;
 }
 
-ol li > p {
+nav + ol li > p {
     padding: 1rem;
     border-radius: 1rem;
 }
 
-ol li:nth-of-type(odd) {
+nav + ol li:nth-of-type(odd) {
     margin-left: auto;
 }
 
-ol li:nth-of-type(odd) > p {
+nav + ol li:nth-of-type(odd) > p {
     background-color: var(--primary-gray);
 }
 
-ol li:nth-of-type(even) > p {
+nav + ol li:nth-of-type(even) > p {
     background-color: var(--blue);
     color: var(--primary-white);
 }
 
-ol li:first-of-type {
+nav + ol li:first-of-type {
     margin: 0;
 }
 
-ol li footer {
+nav + ol li footer {
     margin-top: .3rem;
 }
 
-ol li footer p {
+nav + ol li footer p {
     font-size: var(--font-small);
     padding: 0 1rem;
 }
 
-ol + form {
+nav + ol + form {
     grid-area: footer;
     align-self: center;
     justify-self: center;
-    width: 90vw;
-    max-width: 35rem;
+    width: var(--width-constrain);
+    max-width: var(--max-width);
     margin-top: 1.5rem;
 }
 
-ol + form label {
+nav + ol + form label {
     position: absolute;
     visibility: hidden;
 }
 
-ol + form button {
-    width: 90vw;
-    max-width: 35rem;
+nav + ol + form button {
+    width: var(--width-constrain);
+    max-width: var(--max-width);
 }
 
 textarea {
     font-size: var(--font-normal);
     width: 100%;
-    max-width: 35rem;
+    max-width: var(--max-width);
     height: 3rem;
     background: var(--primary-white);
     margin: 0 auto;
@@ -582,4 +513,151 @@ textarea {
     border: none;
     border-radius: 1.5rem;
     padding: 1rem;
+}
+
+/*==========================
+=== The loginform
+===========================*/
+[method="get"] {
+    grid-area: content;
+    display: grid;
+    height: 100%;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+[method="get"] h1 {
+    font-size: calc(var(--font-big) * 2);
+    margin-bottom: 1rem;
+}
+
+[method="get"] div {
+    position: relative;
+}
+
+[method="get"] div label {
+    position: absolute;
+    top: 30%;
+    left: 1rem;
+    font-size: var(--font-big);
+    transition: var(--def-transition);
+}
+
+[method="get"] div:last-of-type {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+[method="get"] div:last-of-type label {
+    position: initial;
+    font-size: var(--font-normal);
+}
+
+[method="get"] > a {
+    margin: 1rem auto 0 auto;
+    font-size: var(--font-normal);
+}
+
+[method="get"] [type="checkbox"] {
+    padding: 1rem;
+}
+
+[method="get"] input:not([type="checkbox"]) {
+    height: 4em;
+    margin: 0 auto;
+    width: var(--width-constrain);
+    max-width: var(--max-width);
+    font-size: var(--font-big);
+    margin-bottom: 1.5rem;
+    border: none;
+    padding: 0 1rem;
+    padding-top: 1rem;
+    border-bottom: 0 solid var(--primary-color);
+    transition: var(--def-transition);
+}
+
+[method="get"] input:not([type="checkbox"]):focus {
+    outline: none;
+    border-bottom: var(--border-width) solid var(--primary-color);
+}
+
+[method="get"] input:not([type="checkbox"]):focus::-webkit-input-placeholder {
+    opacity: 1;
+}
+
+[method="get"] input:not([type="checkbox"])::-webkit-input-placeholder {
+    opacity: 0;
+    transition: var(--def-transition);
+}
+
+[method="get"] input:not([type="checkbox"]):focus + label,
+    [method="get"] input:not([type="checkbox"]):not(:placeholder-shown) + label {
+    font-size: var(--font-small);
+    top: .6rem;
+    color: var(--primary-color);
+}
+
+/*==========================
+=== Stepindicator
+===========================*/
+nav + nav {
+    grid-area: content;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 1.5rem auto;
+}
+
+nav + nav h1 {
+    font-size: calc(var(--font-big) * 2);
+    margin-bottom: 1.5rem;
+}
+
+nav + nav + article {
+    grid-area: footer;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+nav + nav ol {
+    max-width: 25rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav + nav ol li {
+    list-style: none;
+}
+
+nav + nav ol a {
+    font-size: var(--font-small);
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+nav + nav progress {
+    color: var(--primary-color);
+    width: 100%;
+    height: .3em;
+    margin-top: .8rem;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+nav + nav progress::-webkit-progress-bar {
+    background: #fff;
+}
+
+nav + nav progress::-webkit-progress-value {
+    background: var(--primary-color);
+}
+
+nav + nav progress::-moz-progress-bar {
+    background: var(--primary-color);
+}
+
+nav + nav [aria-label] {
+    color: var(--primary-color);
+    font-size: var(--font-normal);
 }

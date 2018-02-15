@@ -21,6 +21,9 @@
 	--border-radius: .8rem;
 	--border-width: 3px;
 
+	--max-width: 35rem;
+	--width-constrain: 90vw;
+
 	--def-transition: .3s all;
 }
 
@@ -83,6 +86,22 @@ figcaption {
 
 ul {
     padding: 0;
+}
+
+ol {
+	display: flex;
+	margin: 0 auto;
+	// width: 75%;
+	width: var(--width-constrain);
+	max-width: var(--max-width);
+}
+
+progress {
+	display: flex;
+	margin: 0 auto;
+	// width: 75%;
+	width: var(--width-constrain);
+	max-width: var(--max-width);
 }
 
 a {
@@ -249,7 +268,7 @@ header {
 === The navigation
 ===========================*/
 
-nav {
+nav:first-of-type {
 	grid-area: mainnav;
 	position: relative;
 	align-items: end;
@@ -273,6 +292,7 @@ nav {
 	
 	li {
 		display: inline-block;
+		position: relative;
 		list-style: none;
 	}
 
@@ -283,10 +303,9 @@ nav {
 
 		opacity: 0;
 		height: 0;
-		width: 15rem;
+		width: 10rem;
 
 		border-radius: var(--border-radius);
-		padding: .5rem 1rem;
 		
 		overflow: hidden;
 		z-index: 1;
@@ -302,6 +321,7 @@ nav {
 			visibility: visible;
 			opacity: 1;
 			height: auto;
+			padding: .5rem 1rem;		
 		}
 
 		li {
@@ -322,7 +342,8 @@ nav {
 			// background: darkkhaki;			
 			visibility: visible;
 			opacity: 1;
-			height: auto;						
+			height: auto;	
+			padding: .5rem 1rem;							
 		}
 	}	
 }
@@ -344,9 +365,7 @@ nav {
 	nav {
 		ul {
 			justify-content: flex-start;
-			a {
-				// padding-left: 1.5rem;
-			}
+
 			>li:first-child a {
 				padding-left: .5rem;
 			}
@@ -355,280 +374,188 @@ nav {
 }
 
 /*==========================
-=== The loginform
-===========================*/
-
-// Should be post but we do not have a server with response here
-// Is a form element btw
-[method="get"] {
-	grid-area: content;
-	display: grid;
-	// grid-template-rows: 1fr 1fr 1fr;
-	height: 100%;
-	margin-top: 2rem;
-
-	justify-content: center;
-
-	h1 {
-		font-size: calc(var(--font-big) * 2);
-		margin-bottom: 1rem;
-	}
-
-	div {
-		position: relative;
-		label {
-			position: absolute;
-			top: 30%;
-			left: 1rem;
-			font-size: var(--font-big);
-			transition: var(--def-transition);
-		}
-		
-		&:last-of-type {
-			display: flex;
-			// background: red;
-			justify-content: center;
-			margin: 1rem 0;
-
-			label {
-				position: initial;
-				font-size: var(--font-normal);
-			}
-		}
-	}
-
-	&>a {
-		margin: 1rem auto 0 auto;
-		font-size: var(--font-normal);
-	}
-
-	[type="checkbox"] {
-		padding: 1rem;
-	}
-
-	input:not([type="checkbox"]) {
-		height: 4em;
-		margin: 0 auto;
-		// width: 75%;
-		width: 90vw;
-		max-width: 35rem;
-
-		font-size: var(--font-big);
-		margin-bottom: 1.5rem;
-		border: none;
-		padding: 0 1rem;
-		padding-top: 1rem;
-		// border-radius: 2.5em;
-		// background: var(--primary-white);
-		border-bottom: 0 solid var(--primary-color);
-
-		transition: var(--def-transition);
-
-		&:focus {
-			outline: none;
-			border-bottom: var(--border-width) solid var(--primary-color);
-			&::-webkit-input-placeholder {
-				opacity: 1;
-			}
-		}
-
-		&::-webkit-input-placeholder {
-			opacity: 0;
-			transition: var(--def-transition);
-		}
-
-		&:focus + label,
-		&:not(:placeholder-shown) + label, {
-			font-size: var(--font-small);	
-			top: .6rem;			
-			color: var(--primary-color);
-		}
-	}
-}
-
-/*==========================
 === Card Main
 ===========================*/
 
-article {
-	position: relative;
-	// background: var(--primary-white);
-	height: min-content;
+	article {
+		position: relative;
+		// background: var(--primary-white);
+		height: min-content;
 
-	border-radius: var(--border-radius);
-	
-	a {
-		transition: var(--def-transition);
 		border-radius: var(--border-radius);
+		
+		a {
+			transition: var(--def-transition);
+			border-radius: var(--border-radius);
+		}
+		
+		// padding: 1rem;
+
+		img {
+			max-height: 20rem;
+			border-radius: var(--border-radius);
+		}
+
 	}
-	
-	// padding: 1rem;
 
-	img {
-		max-height: 20rem;
-		border-radius: var(--border-radius);
-	}
-
-}
-
-article:nth-of-type(odd) {	
-	&>a {
-		outline: none;
-		display: block;
-		height: 100%;
-		color: inherit;
-		padding: 1rem;
-		&:focus,
-		&:hover {
-			background: rgba(0,0,0,.1);
-	
+	article:nth-of-type(odd) {	
+		&>a {
+			outline: none;
+			display: block;
+			height: 100%;
+			color: inherit;
+			padding: 1rem;
+			&:focus,
+			&:hover {
+				background: rgba(0,0,0,.1);
+		
+				&::before {
+					transform: rotate(3deg) translate(.8rem, -.8rem);
+				}
+			}
+		
 			&::before {
-				transform: rotate(3deg) translate(.8rem, -.8rem);
+				content: "";
+				position: absolute;
+				height: 100%;
+				max-height: 20rem;
+				width: calc(100% - 2rem);
+				background: red;
+				background: rgba(0,0,0,.2);
+				border-radius: inherit;
+		
+				z-index: -1;
+				transition: var(--def-transition);
 			}
 		}
-	
-		&::before {
-			content: "";
-			position: absolute;
-			height: 100%;
-			max-height: 20rem;
-			width: calc(100% - 2rem);
-			background: red;
-			background: rgba(0,0,0,.2);
-			border-radius: inherit;
-	
-			z-index: -1;
-			transition: var(--def-transition);
+	}
+
+	// Easier to read like this
+	article:nth-of-type(even) {
+		position: fixed;
+		top: 5%;
+		left: 0;
+		right: 0;
+		width: 90%;
+		max-width: var(--max-width);
+
+		background: var(--primary-white);
+		margin: 0 auto;
+		padding: 1rem;
+
+		visibility: hidden;
+		opacity: 0;
+
+		z-index: 100;
+
+		transition: var(--def-transition);
+		&:target {
+			visibility: visible;
+			opacity: 1;
+			box-shadow: 0 0 0 50vmax rgba(0,0,0,.3);
 		}
 	}
-}
-
-// Easier to read like this
-article:nth-of-type(even) {
-	position: fixed;
-	top: 5%;
-	left: 0;
-	right: 0;
-	width: 90%;
-	max-width: 35rem;
-
-	background: var(--primary-white);
-	margin: 0 auto;
-	padding: 1rem;
-
-	visibility: hidden;
-	opacity: 0;
-
-	z-index: 100;
-
-	transition: var(--def-transition);
-	&:target {
-		visibility: visible;
-		opacity: 1;
-		box-shadow: 0 0 0 50vmax rgba(0,0,0,.3);
-	}
-}
 
 
-// The close icon in the modal cards
-[href="#"] {
-	position: absolute;
-	top: .8em;
-	right: 1.8rem;
-	font-size: 2em;
-	color: var(--primary-white);
+	// The close icon in the modal cards
+	[href="#"] {
+		position: absolute;
+		top: .8em;
+		right: 1.8rem;
+		font-size: 2em;
+		color: var(--primary-white);
 
-	&:focus,
-	&:hover {
-		animation: wobble 1s infinite alternate ease-in-out;
-	}
-}
-
-
-@media all and (min-width: 40rem) {
-	article {
-		&:nth-of-type(2n + 1) {
-			grid-column: span 2;
-		}
-
-		&:nth-of-type(3n + 3) {
-			grid-column: span 1;
-		}
-
-		&:nth-of-type(3n + 4) {
-			grid-column: span 2;
-		}
-
-
-		&:nth-of-type(even) {
-			// width: 
+		&:focus,
+		&:hover {
+			animation: wobble 1s infinite alternate ease-in-out;
 		}
 	}
-}
+
+
+	@media all and (min-width: 40rem) {
+		main article {
+			&:nth-of-type(2n + 1) {
+				grid-column: span 2;
+			}
+
+			&:nth-of-type(3n + 3) {
+				grid-column: span 1;
+			}
+
+			&:nth-of-type(3n + 4) {
+				grid-column: span 2;
+			}
+
+
+			&:nth-of-type(even) {
+				// width: 
+			}
+		}
+	}
 
 /*==========================
 === Rating fieldset
 ===========================*/
-fieldset {
-	text-align: center;
-	border: none;
-	border-top: 1px solid var(--primary-color);
-	// border-top: 1px solid var(--black2);
-
-	label {
-		display: inline-block;
+	fieldset {
 		text-align: center;
-		font-size: 0;
-		padding: .5rem;
-	}
+		border: none;
+		border-top: 1px solid var(--primary-color);
+		// border-top: 1px solid var(--black2);
 
-	// Is a radiobtn
-	input {
-		&+label {
-			svg {
-				border: 0px solid var(--focus-color);
-				border-radius: 100%;
-				transition: var(--def-transition);
+		label {
+			display: inline-block;
+			text-align: center;
+			font-size: 0;
+			padding: .5rem;
+		}
+
+		// Is a radiobtn
+		input {
+			&+label {
+				svg {
+					border: 0px solid var(--focus-color);
+					border-radius: 100%;
+					transition: var(--def-transition);
+				}
+			}
+
+			&:focus,
+			&:hover {
+				// outline: red;
+
+				&+label svg {
+					// border: 3px solid var(--focus-color);
+					opacity: 1;
+				}
 			}
 		}
 
-		&:focus,
-		&:hover {
-			// outline: red;
+		svg {
+			height: 2rem;
+			opacity: .5;
 
-			&+label svg {
+			// animation: jumping 1s infinite alternate ease-in-out;
+		}
+	}
+
+	legend {
+		padding: 0 1em;
+	}
+
+	[type="radio"] {
+		&:checked {
+			+label svg {
 				// border: 3px solid var(--focus-color);
+				// border: 3px solid purple;
 				opacity: 1;
+				transform: scale(1.1);
+
+			animation: jumping .6s infinite alternate ease-out;
+			// animation: wobble 1s infinite alternate ease-in-out;
+				
 			}
 		}
 	}
-
-	svg {
-		height: 2rem;
-		opacity: .5;
-
-		// animation: jumping 1s infinite alternate ease-in-out;
-	}
-}
-
-legend {
-	padding: 0 1em;
-}
-
-[type="radio"] {
-	&:checked {
-		+label svg {
-			// border: 3px solid var(--focus-color);
-			// border: 3px solid purple;
-			opacity: 1;
-			transform: scale(1.1);
-
-		animation: jumping .6s infinite alternate ease-out;
-		// animation: wobble 1s infinite alternate ease-in-out;
-			
-		}
-	}
-}
 
 
 
@@ -636,98 +563,251 @@ legend {
 === Chat/Contact
 ===========================*/
 
-ol {
-	grid-area: content;
-	display: flex;
-	flex-direction: column;
-	margin: 0 auto;
-	// width: 75%;
-	width: 90vw;
-	max-width: 35rem;
+	nav + ol {
+		grid-area: content;
+		flex-direction: column;
+		// margin: 0 auto;
+		// // width: 75%;
+		// width: var(--width-constrain);
+		// max-width: var(--max-width);
 
-	li {
-		display: inline-block;
-		max-width: 18rem;
+		li {
+			display: inline-block;
+			max-width: 18rem;
 
-		margin-bottom: 1rem;
+			margin-bottom: 1rem;
 
-		&>h1 {
-			font-size: calc(var(--font-big) * 2);
-			margin: 2rem 0;
-		}
+			&>h1 {
+				font-size: calc(var(--font-big) * 2);
+				margin: 2rem 0;
+			}
 
-		&>p {
-			padding: 1rem;
-			border-radius: 1rem;
-		}
-		
-		&:nth-of-type(odd) {
 			&>p {
-				background-color: var(--primary-gray);
+				padding: 1rem;
+				border-radius: 1rem;
 			}
 			
-			// align-self: end;
-			margin-left: auto;
-			// text-align: end;
+			&:nth-of-type(odd) {
+				&>p {
+					background-color: var(--primary-gray);
+				}
+				
+				// align-self: end;
+				margin-left: auto;
+				// text-align: end;
+			}
+			
+			&:nth-of-type(even) {
+				&>p {
+					background-color: var(--blue);
+					color: var(--primary-white);
+				}
+			}
+
+			&:first-of-type {
+				margin: 0;
+			}
+
+			p {}
+
+			footer {
+				margin-top: .3rem;
+				p {
+					font-size: var(--font-small);
+					padding: 0 1rem;
+				}
+			}
 		}
 		
-		&:nth-of-type(even) {
-			&>p {
-				background-color: var(--blue);
-				color: var(--primary-white);
+
+		&+form {
+			grid-area: footer;
+			align-self: center;
+			justify-self: center;
+
+			width: var(--width-constrain);
+			max-width: var(--max-width);
+
+			margin-top: 1.5rem;
+
+			label {
+				position: absolute;
+				visibility: hidden;
+			}
+
+			button {
+				width: var(--width-constrain);
+				max-width: var(--max-width);
+			}
+		}
+	}
+
+	textarea {
+		font-size: var(--font-normal);
+		width: 100%;
+		max-width: var(--max-width);
+		height: 3rem;
+
+		background: var(--primary-white);
+
+		margin: 0 auto;
+		margin-bottom: 1rem;
+		
+		border: none;
+		border-radius: 1.5rem;
+		padding: 1rem;
+	}
+
+
+/*==========================
+=== The loginform
+===========================*/
+
+	// Should be post but we do not have a server with response here
+	// Is a form element btw
+	[method="get"] {
+		grid-area: content;
+		display: grid;
+		// grid-template-rows: 1fr 1fr 1fr;
+		height: 100%;
+		margin-top: 2rem;
+
+		justify-content: center;
+
+		h1 {
+			font-size: calc(var(--font-big) * 2);
+			margin-bottom: 1rem;
+		}
+
+		div {
+			position: relative;
+			label {
+				position: absolute;
+				top: 30%;
+				left: 1rem;
+				font-size: var(--font-big);
+				transition: var(--def-transition);
+			}
+			
+			&:last-of-type {
+				display: flex;
+				// background: red;
+				justify-content: center;
+				margin: 1rem 0;
+
+				label {
+					position: initial;
+					font-size: var(--font-normal);
+				}
 			}
 		}
 
-		&:first-of-type {
-			margin: 0;
+		&>a {
+			margin: 1rem auto 0 auto;
+			font-size: var(--font-normal);
 		}
 
-		p {}
+		[type="checkbox"] {
+			padding: 1rem;
+		}
 
-		footer {
-			margin-top: .3rem;
-			p {
+		input:not([type="checkbox"]) {
+			height: 4em;
+			margin: 0 auto;
+			// width: 75%;
+			width: var(--width-constrain);
+			max-width: var(--max-width);
+
+			font-size: var(--font-big);
+			margin-bottom: 1.5rem;
+			border: none;
+			padding: 0 1rem;
+			padding-top: 1rem;
+			// border-radius: 2.5em;
+			// background: var(--primary-white);
+			border-bottom: 0 solid var(--primary-color);
+
+			transition: var(--def-transition);
+
+			&:focus {
+				outline: none;
+				border-bottom: var(--border-width) solid var(--primary-color);
+				&::-webkit-input-placeholder {
+					opacity: 1;
+				}
+			}
+
+			&::-webkit-input-placeholder {
+				opacity: 0;
+				transition: var(--def-transition);
+			}
+
+			&:focus + label,
+			&:not(:placeholder-shown) + label, {
+				font-size: var(--font-small);	
+				top: .6rem;			
+				color: var(--primary-color);
+			}
+		}
+	}
+
+
+/*==========================
+=== Stepindicator
+===========================*/
+
+	nav + nav {
+		// grid-area: content;
+		grid-area: content;
+		width: 100%;
+		max-width: var(--max-width);
+
+		margin: 1.5rem auto;
+
+		h1 {
+			font-size: calc(var(--font-big) * 2);
+			margin-bottom: 1.5rem;
+		}
+
+		+ article {
+			grid-area: footer;
+			max-width: var(--max-width);
+			// grid-column: 1 !important;
+			margin: 0 auto;
+		}
+		
+		ol {
+			max-width: 25rem;
+			flex-direction: row;
+			justify-content: space-between;
+
+			li {
+				list-style: none;
+			}
+			
+			a {
 				font-size: var(--font-small);
-				padding: 0 1rem;
+				margin: 0;
+				text-transform: uppercase;
+				font-weight: 500;
 			}
 		}
-	}
-	
 
-	&+form {
-		grid-area: footer;
-		align-self: center;
-		justify-self: center;
+		progress {
+			color: var(--primary-color);
+			width: 100%;
+			height: .3em;
 
-		width: 90vw;
-		max-width: 35rem;
-
-		margin-top: 1.5rem;
-
-		label {
-			position: absolute;
-			visibility: hidden;
+			margin-top: .8rem;
+			border-radius: 1rem;
+			overflow: hidden;
 		}
-
-		button {
-			width: 90vw;
-			max-width: 35rem;
+		progress::-webkit-progress-bar { background: #fff; }
+		progress::-webkit-progress-value { background: var(--primary-color); }
+		progress::-moz-progress-bar { background: var(--primary-color); }
+		
+		[aria-label] {
+			color: var(--primary-color);
+			font-size: var(--font-normal);
 		}
 	}
-}
-
-textarea {
-	font-size: var(--font-normal);
-	width: 100%;
-	max-width: 35rem;
-	height: 3rem;
-
-	background: var(--primary-white);
-
-	margin: 0 auto;
-	margin-bottom: 1rem;
-	
-	border: none;
-	border-radius: 1.5rem;
-	padding: 1rem;
-}
