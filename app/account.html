@@ -9,11 +9,12 @@
 	<title>Living Styleguide</title>
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="public/libs/revenge.css">
 	<link rel="stylesheet" href="public/styles/styles.css">
 </head>
 
 <body>
-	<header>
+	<header role="banner">
 		<h1>
 			<a href="/">Food &amp; Me</a>
 		</h1>
@@ -63,12 +64,14 @@
 			<label for="field-password">Password</label>
 		</div>	
 
-		<input type="checkbox" id="field-stay-logged-in" name="field-stay-logged-in" value="stay-logged-in">
-		<label for="field-stay-logged-in">Stay logged in</label>
-
-		<a href="/">Forgot password</a>
-
+		<div>
+			<input type="checkbox" id="field-stay-logged-in" name="field-stay-logged-in" value="stay-logged-in">
+			<label for="field-stay-logged-in">Stay logged in</label>
+		</div>
+			
+		
 		<button type="submit">Login</button>
+		<a href="/">Forgot password</a>
 	</form>
 
 </body>

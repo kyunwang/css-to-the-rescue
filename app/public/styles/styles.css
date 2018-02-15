@@ -300,6 +300,26 @@ nav a {
     transition: var(--def-transition);
 }
 
+[method="get"] div:last-of-type {
+    display: flex;
+    justify-content: center;
+    margin: .5rem 0;
+}
+
+[method="get"] div:last-of-type label {
+    position: initial;
+    font-size: var(--font-normal);
+}
+
+[method="get"] > a {
+    margin: .5rem auto 0 auto;
+    font-size: var(--font-normal);
+}
+
+[method="get"] [type="checkbox"] {
+    padding: 1rem;
+}
+
 [method="get"] input:not([type="checkbox"]) {
     height: 4em;
     margin: 0 auto;
@@ -308,6 +328,7 @@ nav a {
     font-size: var(--font-big);
     border: none;
     padding: 0 1rem;
+    padding-top: 1rem;
     border-bottom: 0 solid var(--primary-color);
     transition: var(--def-transition);
 }

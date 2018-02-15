@@ -376,6 +376,26 @@ nav {
 				transition: var(--def-transition);
 			}
 			
+			&:last-of-type {
+				display: flex;
+				// background: red;
+				justify-content: center;
+				margin: .5rem 0;
+
+				label {
+					position: initial;
+					font-size: var(--font-normal);
+				}
+			}
+		}
+
+		&>a {
+			margin: .5rem auto 0 auto;
+			font-size: var(--font-normal);
+		}
+
+		[type="checkbox"] {
+			padding: 1rem;
 		}
 
 		input:not([type="checkbox"]) {
@@ -388,6 +408,7 @@ nav {
 			font-size: var(--font-big);
 			border: none;
 			padding: 0 1rem;
+			padding-top: 1rem;
 			// border-radius: 2.5em;
 			// background: var(--primary-white);
 			border-bottom: 0 solid var(--primary-color);
@@ -414,6 +435,7 @@ nav {
 				color: var(--primary-color);
 			}
 		}
+
 
 	}
 
