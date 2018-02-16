@@ -271,8 +271,8 @@ nav:first-of-type {
     justify-items: end;
     height: min-content;
     margin: var(--def-margin-head);
-    border-top: 1.5px solid var(--primary-color);
-    border-bottom: 1.5px solid var(--primary-color);
+    /* border-top: 1.5px solid var(--primary-color); */
+    /* border-bottom: 1.5px solid var(--primary-color); */
 }
 
 nav:first-of-type ul {
@@ -424,6 +424,7 @@ article:nth-of-type(even):target {
 }
 
 article:nth-of-type(even) > a:focus, article:nth-of-type(even) > a:hover {
+    outline: none;
     color: var(--primary-color);
 }
 
@@ -618,6 +619,16 @@ textarea {
 [method="get"] > a {
     margin: 1rem auto 0 auto;
     font-size: var(--font-normal);
+}
+
+[method="get"] > a:last-of-type {
+    position: absolute;
+    width: max-content;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
 }
 
 [method="get"] [type="checkbox"] {

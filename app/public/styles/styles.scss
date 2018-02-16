@@ -537,6 +537,7 @@ nav:first-of-type {
 		&>a {
 			&:focus,
 			&:hover {
+				outline: none;
 				color: var(--primary-color);
 			}
 		}
@@ -791,6 +792,16 @@ nav:first-of-type {
 		&>a {
 			margin: 1rem auto 0 auto;
 			font-size: var(--font-normal);
+			&:last-of-type {
+				position: absolute;
+				// width: min-content;
+				width: max-content;
+				bottom: 1rem;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				text-align: center;
+			}
 		}
 
 		[type="checkbox"] {
