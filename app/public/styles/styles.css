@@ -271,8 +271,8 @@ nav:first-of-type {
     justify-items: end;
     height: min-content;
     margin: var(--def-margin-head);
-    /* border-top: 1.5px solid var(--primary-color); */
-    /* border-bottom: 1.5px solid var(--primary-color); */
+    border-top: 1.5px solid var(--primary-color);
+    border-bottom: 1.5px solid var(--primary-color);
 }
 
 nav:first-of-type ul {
