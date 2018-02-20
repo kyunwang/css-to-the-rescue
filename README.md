@@ -65,6 +65,21 @@ Learning more about CSS Grid's syntax and using it in practical sense.
 - That you cannot create a masonry layout with `CSS Grid`. 😞
 
 ### What to do/planned
+- Implementing all the assignments. (Implementing from the book *CSS Secrets from Lea Verou*)
+- Retouching the styling
+- Update the readme
+
+## Week 3
+### What I've done
+- Fixing and retouching
+- Used `column-count` instead of `grid` for a masonry layout.
+- Adding little animations
+
+### What I've learned
+- Got more familiar with keyframes
+- Got more familiar with styling the `<progress>` tag
+- Learned some tricks from the book *CSS Secrets*
+### What to do/planned
 
 # Components
 
