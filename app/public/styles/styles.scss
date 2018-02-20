@@ -272,13 +272,20 @@ form {
 	}
 }
 
-@keyframes elastic-grow {
+@keyframes elastic-modal {
 	from { transform: scale(0); }
 	70% {
 		transform: scale(1.1);
 		// animation-timing-function: cubic-bezier(.1, .25, 1, .25);
-		animation-timing-function: ease-in5;
-	}}
+		animation-timing-function: ease-in;
+	}
+}
+
+@keyframes loader {
+	to {
+		background-position: calc(-50px * 8) 0;
+	}
+}
 
 /*==========================
 === Our containers
@@ -560,7 +567,7 @@ nav:first-of-type {
 			opacity: 1;
 			transform: scale(1);
 			
-			animation: elastic-grow .5s;
+			animation: elastic-modal .5s;
 
 			box-shadow: 0 0 0 50vmax rgba(0,0,0,.3);
 		}
@@ -788,6 +795,8 @@ nav:first-of-type {
 			&:last-of-type {
 				display: flex;
 				// background: red;
+				flex-direction: column;
+				align-items: center;
 				justify-content: center;
 				margin: 1rem 0;
 
@@ -822,6 +831,20 @@ nav:first-of-type {
 						// content: '\2714';
 						// background: yellowgreen;
 					}
+				}
+				~div {
+					/* A  */
+					height: 50px;
+					width: 50px;
+					background: url(http://dabblet.com/img/loader.png) 0 0;
+					background-size: cover;
+
+					animation: loader 1s infinite steps(8);
+
+					/* Hide text */
+					text-indent: 200%;
+					white-space: nowrap;
+					overflow: hidden;
 				}
 			}
 
@@ -904,7 +927,7 @@ nav:first-of-type {
 		[method="get"] {
 			&>a {
 				&:last-of-type {
-					position: absolute;
+					// position: absolute;
 					bottom: 1rem;
 					left: 0;
 					right: 0;

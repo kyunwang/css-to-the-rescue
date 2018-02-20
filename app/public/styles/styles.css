@@ -247,14 +247,20 @@ nav a::before,
     }
 }
 
-@keyframes elastic-grow {
+@keyframes elastic-modal {
     from {
         transform: scale(0);
     }
 
     70% {
         transform: scale(1.1);
-        animation-timing-function: ease-in5;
+        animation-timing-function: ease-in;
+    }
+}
+
+@keyframes loader {
+    to {
+        background-position: calc(-50px * 8) 0;
     }
 }
 
@@ -459,7 +465,7 @@ article:nth-of-type(even):target {
     visibility: visible;
     opacity: 1;
     transform: scale(1);
-    animation: elastic-grow .5s;
+    animation: elastic-modal .5s;
     box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.3);
 }
 
@@ -633,6 +639,8 @@ textarea {
 
 [method="get"] div:last-of-type {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin: 1rem 0;
 }
@@ -662,6 +670,19 @@ textarea {
 
 [method="get"] [type="checkbox"]:checked + label::before {
     content: '\2713';
+}
+
+[method="get"] [type="checkbox"]:checked ~ div {
+      /* A  */
+    height: 50px;
+    width: 50px;
+    background: url(http://dabblet.com/img/loader.png) 0 0;
+    background-size: cover;
+    animation: loader 1s infinite steps(8);
+      /* Hide text */
+    text-indent: 200%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 [method="get"] [type="checkbox"]:focus + label::before, [method="get"] [type="checkbox"]:hover + label::before {
@@ -722,7 +743,6 @@ textarea {
 
 @media all and (min-width: 35rem) {
     [method="get"] > a:last-of-type {
-        position: absolute;
         bottom: 1rem;
         left: 0;
         right: 0;

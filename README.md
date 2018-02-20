@@ -91,7 +91,8 @@ The background when a card is selected
 - [ ] 7.40 Vertical centering
 
 - [ ] Frame by frame - Loading spinner — 8.43
-- [ ] Elastic transition - Transitions op :hovers en :focus—8.42
+- [x] Elastic transition - Transitions op :hovers en :focus—8.42
+On selecting a card. A modal will bounce in.
 - [x] Picking the right Cursor — 6.29
 Default on links and set on buttons
 - [x] Extending the clickable area — 6.30
