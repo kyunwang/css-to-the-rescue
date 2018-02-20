@@ -919,8 +919,8 @@ nav:first-of-type {
 		+ article {
 			grid-area: footer;
 			max-width: var(--max-width);
-			// grid-column: 1 !important;
 			margin: 0 auto;
+			margin-bottom: 2rem;
 		}
 		
 		ol {
