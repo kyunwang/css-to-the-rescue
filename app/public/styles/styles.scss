@@ -263,12 +263,18 @@ form {
 
 // A happy jump
 @keyframes jumping {
-	from {
-		transform: translateY(0);
-	}
 
-	to {
-		transform: translateY(-3px);
+	0% {
+		transform: translateY(0) rotate(0);
+	}
+	25% {
+		transform: translateY(-5px) rotate(-6deg) scale(1.2);
+	}
+	50% {
+		transform: translateY(0) rotate(0);
+	}
+	75% {
+		transform: translateY(-5px) rotate(6deg) scale(1.2);
 	}
 }
 
@@ -599,7 +605,6 @@ nav:first-of-type {
 		text-align: center;
 		border: none;
 		border-top: 1px solid var(--primary-color);
-		// border-top: 1px solid var(--black2);
 
 		label {
 			display: inline-block;
@@ -620,10 +625,7 @@ nav:first-of-type {
 
 			&:focus,
 			&:hover {
-				// outline: red;
-
 				&+label svg {
-					// border: 3px solid var(--focus-color);
 					opacity: 1;
 				}
 			}
@@ -631,9 +633,7 @@ nav:first-of-type {
 
 		svg {
 			height: 2rem;
-			opacity: .5;
-
-			// animation: jumping 1s infinite alternate ease-in-out;
+			opacity: .3;
 		}
 	}
 
@@ -644,14 +644,9 @@ nav:first-of-type {
 	[type="radio"] {
 		&:checked {
 			+label svg {
-				// border: 3px solid var(--focus-color);
-				// border: 3px solid purple;
 				opacity: 1;
 				transform: scale(1.1);
-
-			animation: jumping .6s infinite alternate ease-out;
-			// animation: wobble 1s infinite alternate ease-in-out;
-				
+				animation: jumping 1s infinite ease-out;
 			}
 		}
 	}

@@ -238,12 +238,20 @@ nav a::before,
 }
 
 @keyframes jumping {
-    from {
-        transform: translateY(0);
+    0% {
+        transform: translateY(0) rotate(0);
     }
 
-    to {
-        transform: translateY(-3px);
+    25% {
+        transform: translateY(-5px) rotate(-6deg) scale(1.2);
+    }
+
+    50% {
+        transform: translateY(0) rotate(0);
+    }
+
+    75% {
+        transform: translateY(-5px) rotate(6deg) scale(1.2);
     }
 }
 
@@ -542,7 +550,7 @@ fieldset input:focus + label svg, fieldset input:hover + label svg {
 
 fieldset svg {
     height: 2rem;
-    opacity: .5;
+    opacity: .3;
 }
 
 legend {
@@ -552,7 +560,7 @@ legend {
 [type="radio"]:checked + label svg {
     opacity: 1;
     transform: scale(1.1);
-    animation: jumping .6s infinite alternate ease-out;
+    animation: jumping 1s infinite ease-out;
 }
 
 /*==========================
