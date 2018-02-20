@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-    --primary-font: 'Ampersand', 'Work Sans' ,'Raleway', sans-serif;
+    --primary-font: 'Ampersand', 'Work Sans' ,'Raleway', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-big2: 1.5em;
     --font-big: 1.2em;
     --font-normal: .9em;
@@ -383,19 +383,20 @@ nav:first-of-type ul ul {
     position: absolute;
     top: 2rem;
     opacity: 0;
-    height: 0;
+    max-height: 0;
     width: 10rem;
     border-radius: var(--border-radius);
     overflow: hidden;
     z-index: 1;
     background: var(--primary-white);
     box-shadow: 2px 5px var(--blacka-light);
+    transition: var(--def-transition);
 }
 
 nav:first-of-type ul ul:focus, nav:first-of-type ul ul:focus-within, nav:first-of-type ul ul:hover {
     visibility: visible;
     opacity: 1;
-    height: auto;
+    max-height: 100rem;
 }
 
 nav:first-of-type a {
@@ -407,7 +408,7 @@ nav:first-of-type a {
 [href="products.html"]:hover + ul, [href="products.html"]:focus + ul, [href="products.html"]:focus-within + ul {
     visibility: visible;
     opacity: 1;
-    height: auto;
+    max-height: 100rem;
 }
 
 @media all and (min-width: 40rem) {

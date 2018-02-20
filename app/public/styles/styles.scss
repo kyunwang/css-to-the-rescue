@@ -1,5 +1,6 @@
 :root {
-	--primary-font: 'Ampersand', 'Work Sans' ,'Raleway', sans-serif;
+	--primary-font: 'Ampersand', 'Work Sans' ,'Raleway', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
 	--font-big2: 1.5em;
 	--font-big: 1.2em;
 	--font-normal: .9em;
@@ -411,7 +412,8 @@ nav:first-of-type {
 		top: 2rem;
 
 		opacity: 0;
-		height: 0;
+		// height: 0;
+		max-height: 0;
 		width: 10rem;
 
 		border-radius: var(--border-radius);
@@ -423,17 +425,15 @@ nav:first-of-type {
 
 		box-shadow: 2px 5px var(--blacka-light);
 
+		transition: var(--def-transition);
+
 		&:focus,
 		&:focus-within,
 		&:hover {
 			visibility: visible;
 			opacity: 1;
-			height: auto;
-			// padding: .5rem 1rem;		
-		}
-
-		li {
-			// padding: .5rem 0 .5rem .5rem;
+			// height: auto;
+			max-height: 100rem;
 		}
 	}
 
@@ -452,7 +452,8 @@ nav:first-of-type {
 			// background: darkkhaki;			
 			visibility: visible;
 			opacity: 1;
-			height: auto;	
+			// height: auto;	
+			max-height: 100rem;	
 			// padding: .5rem 1rem;							
 		}
 	}	
