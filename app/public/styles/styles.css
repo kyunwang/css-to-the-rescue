@@ -59,6 +59,7 @@ h1 {
 p {
     font-style: var(--font-normal);
     color: var(--black2);
+    line-height: 1.4;
 }
 
 img {
@@ -314,6 +315,7 @@ main {
     grid-area: content;
     column-count: 1;
     column-gap: 1rem;
+    margin-bottom: 2rem;
     padding: 0 1rem;
     transition: var(--def-transition);
 }
@@ -857,21 +859,19 @@ nav + nav progress:hover::before {
     opacity: 1;
 }
 
-nav + nav progress::-webkit-progress-bar {
+nav + nav progress::-webkit-progress-bar,
+  nav + nav progress::-moz-progress-bar {
     overflow: hidden;
     background: #fff;
     border-radius: 1rem;
 }
 
-nav + nav progress::-webkit-progress-value {
+nav + nav progress::-webkit-progress-value,
+  nav + nav progress::-moz-progress-value {
     border-radius: 1rem 0 0 1rem;
     background: #ccffff;
     background-image: linear-gradient(90deg, var(--primary-color) 0.8rem, transparent 0), linear-gradient(90deg, #8d9eff 1.75rem, transparent 0), linear-gradient(90deg, #7e78d6 2.3rem, transparent 0);
     background-size: 3rem 100%, 5rem 100%, 7rem 100%;
-}
-
-nav + nav progress::-moz-progress-bar {
-    background: var(--primary-color);
 }
 
 nav + nav [aria-label] {

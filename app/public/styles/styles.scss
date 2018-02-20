@@ -65,6 +65,7 @@ h1 {
 p {
 	font-style: var(--font-normal);
 	color: var(--black2);
+	line-height: 1.4;
 }
 
 img {
@@ -326,6 +327,7 @@ main {
 	column-count: 1;
 	column-gap: 1rem;
 
+	margin-bottom: 2rem;
 	padding: 0 1rem;
 	
 	transition: var(--def-transition);
@@ -1011,13 +1013,15 @@ nav:first-of-type {
 			}
 		}
 		
-		progress::-webkit-progress-bar {
+		progress::-webkit-progress-bar,
+		progress::-moz-progress-bar {
 			overflow: hidden;
 			background: #fff;
 			border-radius: 1rem;
 		}
 
-		progress::-webkit-progress-value {
+		progress::-webkit-progress-value,
+		progress::-moz-progress-value {
 			border-radius: 1rem 0 0 1rem;
 			// background: var(--primary-color);
 			background: hsl(180, 100%, 90%);
@@ -1027,9 +1031,6 @@ nav:first-of-type {
 				linear-gradient(90deg, rgb(126, 120, 214) 2.3rem, transparent 0);
 			background-size: 3rem 100%, 5rem 100%, 7rem 100%;
 		}
-
-
-		progress::-moz-progress-bar { background: var(--primary-color); }
 		
 		[aria-label] {
 			color: var(--primary-color);
