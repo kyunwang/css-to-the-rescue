@@ -80,17 +80,18 @@ Rating example makes use of Emoji from: http://emojione.com
 
 ### To be applied form the book **CSS Secrets from Lea Verou**
 
-- [ ] fancy ampersand - 5.25
+- [x] fancy ampersand - 5.25
 In the header
-
 - [ ] de-emphasize by dimming - 6.32
 - [x] de-emphasize by blurring - 6.33 
-The background when a card is selected
+The background when a card is selected - similar to 6.32
 - [x] Instrinsic sizing (Styling by sibling count) -7.36, (7.38)
-
+min-content and max-content incorporated into few components
 - [ ] 7.40 Vertical centering
+Had no need to vertically center something. What comes the closest is the card modal.
 
-- [ ] Frame by frame - Loading spinner — 8.43
+- [x] Frame by frame - Loading spinner — 8.43
+The png sprite sheet loader added to mimic the loading of logging in. Shows when the *Stay logged in* checkbox is checked to mimic the loading
 - [x] Elastic transition - Transitions op :hovers en :focus—8.42
 On selecting a card. A modal will bounce in.
 - [x] Picking the right Cursor — 6.29
