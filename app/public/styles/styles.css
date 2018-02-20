@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root {
     --primary-font: 'Ampersand', 'Work Sans' ,'Raleway', sans-serif;
     --font-big2: 1.5em;
@@ -101,6 +103,12 @@ a {
     color: var(--black);
 }
 
+button:hover, button:focus,
+[type="button"]:hover,
+[type="button"]:focus {
+    cursor: pointer;
+}
+
 [type="radio"] {
     position: absolute;
     left: -999999em;
@@ -170,7 +178,7 @@ nav a::before,
     height: .3em;
     background: var(--primary-color);
     transition: var(--def-transition) ease-in;
-    transform: translateX(-100%);
+    transform: translateX(-120%);
     z-index: -1;
 }
 
@@ -692,20 +700,37 @@ nav + nav ol a {
 }
 
 nav + nav progress {
+    position: relative;
     color: var(--primary-color);
     width: 100%;
-    height: .3em;
-    margin-top: .8rem;
+    max-height: .5rem;
     border-radius: 1rem;
-    overflow: hidden;
+    margin-top: .8rem;
+}
+
+nav + nav progress::before {
+    content: "I was forced to do this 😄";
+    transition: var(--def-transition);
+    opacity: 0;
+    position: absolute;
+    top: .8rem;
+}
+
+nav + nav progress:hover::before {
+    opacity: 1;
 }
 
 nav + nav progress::-webkit-progress-bar {
+    overflow: hidden;
     background: #fff;
+    border-radius: 1rem;
 }
 
 nav + nav progress::-webkit-progress-value {
-    background: var(--primary-color);
+    border-radius: 1rem 0 0 1rem;
+    background: #ccffff;
+    background-image: linear-gradient(90deg, var(--primary-color) 0.8rem, transparent 0), linear-gradient(90deg, #8d9eff 1.75rem, transparent 0), linear-gradient(90deg, #7e78d6 2.3rem, transparent 0);
+    background-size: 3rem 100%, 5rem 100%, 7rem 100%;
 }
 
 nav + nav progress::-moz-progress-bar {
