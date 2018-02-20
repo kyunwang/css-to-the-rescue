@@ -72,3 +72,25 @@ Learning more about CSS Grid's syntax and using it in practical sense.
 ## Step Indicator
 
 Rating example makes use of Emoji from: http://emojione.com
+
+### To be applied form the book **CSS Secrets from Lea Verou**
+
+- [ ] fancy ampersand - 5.25
+In the header
+
+- [ ] de-emphasize by dimming - 6.32
+- [x] de-emphasize by blurring - 6.33 
+The background when a card is selected
+- [x] Instrinsic sizing (Styling by sibling count) -7.36, (7.38)
+
+- [ ] 7.40 Vertical centering
+
+- [ ] Frame by frame - Loading spinner — 8.43
+- [ ] Elastic transition - Transitions op :hovers en :focus—8.42
+- [x] Picking the right Cursor — 6.29
+Default on links and set on buttons
+- [ ] Extending the clickable area — 6.30
+- [x] Custom checkboxes — 6.31
+In the login form under account.html
+- [x] (Pseudo)random background — 2.7
+Set on the progressbar in /learn.html
