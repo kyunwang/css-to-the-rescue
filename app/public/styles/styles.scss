@@ -548,7 +548,7 @@ nav:first-of-type {
 	// Easier to read like this
 	article:nth-of-type(even) {
 		position: fixed;
-		top: 5%;
+		top: .5%;
 		left: 0;
 		right: 0;
 		width: 90%;
@@ -597,6 +597,12 @@ nav:first-of-type {
 		&:focus,
 		&:hover {
 			animation: wobble 1s infinite alternate ease-in-out;
+		}
+	}
+
+	@media all and (min-width: 35rem) {
+		article:nth-of-type(even) {
+			top: 5%;
 		}
 	}
 
