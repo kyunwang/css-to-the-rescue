@@ -272,6 +272,14 @@ form {
 	}
 }
 
+@keyframes elastic-grow {
+	from { transform: scale(0); }
+	70% {
+		transform: scale(1.1);
+		// animation-timing-function: cubic-bezier(.1, .25, 1, .25);
+		animation-timing-function: ease-in5;
+	}}
+
 /*==========================
 === Our containers
 ===========================*/
@@ -545,9 +553,15 @@ nav:first-of-type {
 		z-index: 100;
 
 		transition: var(--def-transition);
+		transform: scale(0);
+
 		&:target {
 			visibility: visible;
 			opacity: 1;
+			transform: scale(1);
+			
+			animation: elastic-grow .5s;
+
 			box-shadow: 0 0 0 50vmax rgba(0,0,0,.3);
 		}
 
