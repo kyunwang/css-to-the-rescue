@@ -7,6 +7,11 @@ Purpose:
 Learn and explore more of CSS
 Accessibility using keyboard
 
+# The constrains
+- No classes or id's to use for styling (Navigating with id  is ok)
+- No JavaScript
+- More...222222222
+
 # Proces
 The process and planning.
 

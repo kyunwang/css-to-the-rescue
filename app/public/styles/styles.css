@@ -312,6 +312,7 @@ nav:first-of-type {
 
 nav:first-of-type ul {
     display: flex;
+    justify-content: flex-end;
     flex-wrap: wrap;
     margin: 1rem 0;
 }
