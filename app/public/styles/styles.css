@@ -264,6 +264,34 @@ nav a::before,
     }
 }
 
+@keyframes errColor {
+    0% {
+        color: #ffc800;
+    }
+
+    50% {
+        color: #ff7800;
+    }
+
+    100% {
+        color: #ff3c00;
+    }
+}
+
+@keyframes errColorBorder {
+    0% {
+        border-color: #ffc800;
+    }
+
+    50% {
+        border-color: #ff7800;
+    }
+
+    100% {
+        border-color: #ff3c00;
+    }
+}
+
 /*==========================
 === Our containers
 ===========================*/
@@ -739,6 +767,18 @@ textarea {
     font-size: var(--font-small);
     top: .6rem;
     color: var(--primary-color);
+}
+
+[method="get"] input:not([type="checkbox"]):invalid:focus {
+    animation: errColorBorder .5s infinite alternate;
+}
+
+[method="get"] input:not([type="checkbox"]):invalid:focus + label,
+    [method="get"] input:not([type="checkbox"]):invalid:not(:placeholder-shown) + label {
+    animation-duration: .5s;
+    animation-name: errColor;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 @media all and (min-width: 35rem) {

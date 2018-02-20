@@ -287,6 +287,18 @@ form {
 	}
 }
 
+@keyframes errColor {
+	0% { color: rgb(255, 200, 0); }
+	50% { color: rgb(255, 120, 0) }
+	100% { color: rgb(255, 60, 0) }
+}
+
+@keyframes errColorBorder {
+	0% { border-color: rgb(255, 200, 0); }
+	50% { border-color: rgb(255, 120, 0) }
+	100% { border-color: rgb(255, 60, 0) }
+}
+
 /*==========================
 === Our containers
 ===========================*/
@@ -350,20 +362,11 @@ header {
 	grid-area: header;
 	// position: relative;
 	margin: var(--def-margin-head);
-	// margin-bottom: 2rem; // Actually for both header and nav/ may change
-
 
 	color: var(--black);
 	h1 {
 		font-size: 3em;
 	}
-
-	// a {
-	// 	&:focus {
-	// 		outline: none;
-	// 	}
-	// }
-
 }
 
 
@@ -374,17 +377,10 @@ header {
 nav:first-of-type {
 	grid-area: mainnav;
 	position: relative;
-	// align-items: end;
-	// align-content: end;
-	// justify-content: end;
-	// justify-items: end;
 
 	height: min-content;
 	
 	margin: var(--def-margin-head);	
-	// border-top: 1.5px solid var(--primary-color);
-	// border-bottom: 1.5px solid var(--primary-color);
-
 
 	ul {
 		display: flex;
@@ -918,6 +914,22 @@ nav:first-of-type {
 				font-size: var(--font-small);	
 				top: .6rem;			
 				color: var(--primary-color);
+			}
+
+			&:invalid {
+				&:focus {
+					animation: errColorBorder .5s infinite alternate;
+				}
+				
+				// &::-webkit-input-placeholder {}
+				&:focus + label,
+				&:not(:placeholder-shown) + label, {
+					// animation: errColor .5s infinite alternate;
+					animation-duration: .5s;
+					animation-name: errColor;
+					animation-iteration-count: infinite;
+					animation-direction: alternate;
+				}
 			}
 		}
 	}
