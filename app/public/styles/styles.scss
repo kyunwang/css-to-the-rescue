@@ -1013,15 +1013,13 @@ nav:first-of-type {
 			}
 		}
 		
-		progress::-webkit-progress-bar,
-		progress::-moz-progress-bar {
+		progress::-webkit-progress-bar {
 			overflow: hidden;
 			background: #fff;
 			border-radius: 1rem;
 		}
 
-		progress::-webkit-progress-value,
-		progress::-moz-progress-value {
+		progress::-webkit-progress-value {
 			border-radius: 1rem 0 0 1rem;
 			// background: var(--primary-color);
 			background: hsl(180, 100%, 90%);
@@ -1030,6 +1028,18 @@ nav:first-of-type {
 				linear-gradient(90deg, rgb(141, 158, 255) 1.75rem, transparent 0),
 				linear-gradient(90deg, rgb(126, 120, 214) 2.3rem, transparent 0);
 			background-size: 3rem 100%, 5rem 100%, 7rem 100%;
+		}
+
+
+		progress::-moz-progress-bar {
+			overflow: hidden;
+			background: #fff;
+			border-radius: 1rem;
+		}
+		progress::-moz-progress-value {
+			overflow: hidden;
+			background: #fff;
+			border-radius: 1rem;
 		}
 		
 		[aria-label] {
