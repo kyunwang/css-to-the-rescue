@@ -89,7 +89,8 @@ The background when a card is selected
 - [ ] Elastic transition - Transitions op :hovers en :focus—8.42
 - [x] Picking the right Cursor — 6.29
 Default on links and set on buttons
-- [ ] Extending the clickable area — 6.30
+- [x] Extending the clickable area — 6.30
+On nav links and link in the login page using transparent borders.
 - [x] Custom checkboxes — 6.31
 In the login form under account.html
 - [x] (Pseudo)random background — 2.7
