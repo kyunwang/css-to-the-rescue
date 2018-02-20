@@ -316,21 +316,21 @@ header {
 nav:first-of-type {
 	grid-area: mainnav;
 	position: relative;
-	align-items: end;
-	align-content: end;
-	justify-content: end;
-	justify-items: end;
+	// align-items: end;
+	// align-content: end;
+	// justify-content: end;
+	// justify-items: end;
 
 	height: min-content;
 	
 	margin: var(--def-margin-head);	
-	border-top: 1.5px solid var(--primary-color);
-	border-bottom: 1.5px solid var(--primary-color);
+	// border-top: 1.5px solid var(--primary-color);
+	// border-bottom: 1.5px solid var(--primary-color);
 
 
 	ul {
 		display: flex;
-		justify-content: space-between;
+		// justify-content: space-between;
 		flex-wrap: wrap;
 		margin: 1rem 0;
 	}
@@ -345,6 +345,7 @@ nav:first-of-type {
 		// display: flex;
 		flex-direction: column;
 		position: absolute;
+		top: 2rem;
 
 		opacity: 0;
 		height: 0;
@@ -354,7 +355,6 @@ nav:first-of-type {
 		
 		overflow: hidden;
 		z-index: 1;
-		// visibility: hidden;
 
 		background: var(--primary-white);
 
@@ -366,16 +366,18 @@ nav:first-of-type {
 			visibility: visible;
 			opacity: 1;
 			height: auto;
-			padding: .5rem 1rem;		
+			// padding: .5rem 1rem;		
 		}
 
 		li {
-			padding: .5rem 0 .5rem .5rem;
+			// padding: .5rem 0 .5rem .5rem;
 		}
 	}
 
 	a {
-		margin: .5rem;
+		border: 1rem solid transparent;
+		border-right: 2rem solid transparent;
+		background-clip: padding-box;
 	}
 }
 
@@ -388,17 +390,13 @@ nav:first-of-type {
 			visibility: visible;
 			opacity: 1;
 			height: auto;	
-			padding: .5rem 1rem;							
+			// padding: .5rem 1rem;							
 		}
 	}	
 }
 
 @media all and (min-width: 40rem) {
 	nav {
-		ul {
-			// width: 80%;
-		}
-
 		ul ul {
 			width: 60%;
 			max-width: 15rem;
@@ -410,10 +408,6 @@ nav:first-of-type {
 	nav {
 		ul {
 			justify-content: flex-start;
-
-			>li:first-child a {
-				margin-left: .5rem;
-			}
 		}
 	}
 }
@@ -748,11 +742,12 @@ nav:first-of-type {
 
 		&>a {
 			margin: 1rem auto 0 auto;
+			border-bottom: 1rem solid transparent;
 			font-size: var(--font-normal);
 			&:last-of-type {
 				width: max-content;
-				margin-top: 2rem;
-				margin-bottom: 1rem;
+				border-top: 1rem solid transparent;
+				border-bottom: 1rem solid transparent;
 				text-align: center;
 			}
 		}
