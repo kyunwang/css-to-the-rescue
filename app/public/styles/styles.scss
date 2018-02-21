@@ -253,13 +253,15 @@ form {
 /*==========================
 === Our keyframes here please
 ===========================*/
-@keyframes wobble {
+@keyframes turnAround {
 	from {
-		transform: rotate(-5deg);
+		transform: rotate(-90deg);
+		// transform: rotate(-5deg);
 	}
 
 	to {
-		transform: rotate(5deg);
+		// transform: rotate(5deg);
+		transform: rotate(90deg);
 	}
 }
 
@@ -598,7 +600,7 @@ nav:first-of-type {
 		&:focus,
 		&:hover {
 			color: var(--primary-color);
-			animation: wobble 1s infinite alternate ease-in-out;
+			animation: turnAround 1s infinite alternate ease-in-out;
 		}
 	}
 
