@@ -60,6 +60,9 @@ Learning more about CSS Grid's syntax and using it in practical sense.
 - Change the content
 
 ## Week 2
+
+**Result of week 2 [HERE](https://kyunwang.github.io/hva-css-minor/week2/)**
+
 ### What I've done
 - Started all over, because I now got an idea what I want to make/do
 - Started styling the component from scratch
@@ -78,6 +81,7 @@ Learning more about CSS Grid's syntax and using it in practical sense.
 - Update the readme
 
 ## Week 3
+
 **Result of week 3 [HERE](https://kyunwang.github.io/hva-css-minor/app/)**
 
 ### What I've done
