@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>Living Styleguide</title>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="public/libs/revenge.css"> -->
+	<link rel="stylesheet" href="public/styles/styles.css">
+</head>
+
+<body>
+	<header role="banner">
+		<h1>
+			<a href="index.html">Food &amp; Me</a>
+		</h1>
+		<p>Look at pictures of food</p>
+
+	</header>
+	<!-- Navigation -->
+	<nav>
+		<ul>
+			<li>
+				<a href="index.html" aria-label="Home, current page">Home</a>
+			</li>
+			<li>
+				<a href="products.html">Products</a>
+
+				<ul>
+					<li>
+						<a href="products/rock">Rock</a>
+					</li>
+					<li>
+						<a href="products/paper">Paper</a>
+					</li>
+					<li>
+						<a href="products/scissors">Scissors</a>
+					</li>
+				</ul>
+
+			</li>
+			<li>
+				<a href="contact.html">Contact</a>
+			</li>
+			<li>
+				<a href="account.html">Account</a>
+			</li>
+		</ul>
+	</nav>
+
+	<form action="index.html" method="get" id="login-modal">
+		<h1>Login</h1>
+		<div>
+			<input type="email" id="field-email" name="field-email" autocomplete="email" placeholder="You know what to do" required autofocus>
+			<label for="field-email">Email</label>
+		</div>
+			
+		<div>
+			<input type="password" id="field-password" name="field-password" placeholder="Your secret password here" required>
+			<label for="field-password">Password</label>
+		</div>	
+
+		<div>
+			<input type="checkbox" id="field-stay-logged-in" name="field-stay-logged-in" value="stay-logged-in">
+			<label for="field-stay-logged-in">Stay logged in</label>
+		</div>
+			
+		
+		<button type="submit">Login</button>
+		<a href="index.html">Forgot password</a>
+		<a href="learn.html">First Time here</a>
+	</form>
+
+</body>
+
+</html>
