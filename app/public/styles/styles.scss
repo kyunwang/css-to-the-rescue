@@ -1,5 +1,5 @@
 :root {
-	--primary-font: 'Ampersand', 'Work Sans' ,'Raleway', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--primary-font: 'Ampersand', 'Work Sans' ,'Raleway';
 
 	--font-big2: 1.5em;
 	--font-big: 1.2em;
@@ -597,6 +597,7 @@ nav:first-of-type {
 
 		&:focus,
 		&:hover {
+			color: var(--primary-color);
 			animation: wobble 1s infinite alternate ease-in-out;
 		}
 	}
@@ -921,12 +922,12 @@ nav:first-of-type {
 			}
 
 			&:invalid {
-				&:focus {
+				&:focus:not(:placeholder-shown) {
 					animation: errColorBorder .5s infinite alternate;
 				}
 				
 				// &::-webkit-input-placeholder {}
-				&:focus + label,
+				&:focus:not(:placeholder-shown) + label,
 				&:not(:placeholder-shown) + label, {
 					// animation: errColor .5s infinite alternate;
 					animation-duration: .5s;

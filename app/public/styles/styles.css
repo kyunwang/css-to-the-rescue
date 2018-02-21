@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-    --primary-font: 'Ampersand', 'Work Sans' ,'Raleway', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --primary-font: 'Ampersand', 'Work Sans' ,'Raleway';
     --font-big2: 1.5em;
     --font-big: 1.2em;
     --font-normal: .9em;
@@ -522,6 +522,7 @@ article:nth-of-type(even) > a:focus, article:nth-of-type(even) > a:hover {
 }
 
 [href="#"]:focus, [href="#"]:hover {
+    color: var(--primary-color);
     animation: wobble 1s infinite alternate ease-in-out;
 }
 
@@ -786,11 +787,11 @@ textarea {
     color: var(--primary-color);
 }
 
-[method="get"] input:not([type="checkbox"]):invalid:focus {
+[method="get"] input:not([type="checkbox"]):invalid:focus:not(:placeholder-shown) {
     animation: errColorBorder .5s infinite alternate;
 }
 
-[method="get"] input:not([type="checkbox"]):invalid:focus + label,
+[method="get"] input:not([type="checkbox"]):invalid:focus:not(:placeholder-shown) + label,
     [method="get"] input:not([type="checkbox"]):invalid:not(:placeholder-shown) + label {
     animation-duration: .5s;
     animation-name: errColor;
