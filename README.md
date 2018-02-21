@@ -100,21 +100,28 @@ Learning more about CSS Grid's syntax and using it in practical sense.
 The component that had to be styled can be found [here](https://github.com/kyunwang/hva-css-minor/tree/master/components)
 
 ## Media Item in Overview
-![An overview of all the items][home]
+<!-- ![An overview of all the items][home] -->
+<img src="https://github.com/kyunwang/hva-css-minor/blob/develop/images/overview.png" alt="An overview of all the items" max-heigth="360">
+
 ## Login
-![An login form][login]
+<!-- ![An login form][login] -->
+<img src="https://github.com/kyunwang/hva-css-minor/blob/develop/images/login.png" alt="An login form" max-heigth="360">
 
 ## Navigation
-![An navigation bar with four items][navigation]
+<!-- ![An navigation bar with four items][navigation] -->
+<img src="https://github.com/kyunwang/hva-css-minor/blob/develop/images/navigation.png" alt="An navigation bar with four items" max-heigth="360">
 
 ## Chat
-![A chat][chat]
+<!-- ![A chat][chat] -->
+<img src="https://github.com/kyunwang/hva-css-minor/blob/develop/images/chat.png" alt="A chat" max-heigth="360">
 
 ## Picture with Subtitle & Rating
-![A modal of a selected item][pic-sub]
+<!-- ![A modal of a selected item][pic-sub] -->
+<img src="https://github.com/kyunwang/hva-css-minor/blob/develop/images/modal.png" alt="A modal of a selected item" max-heigth="360">
 
 ## Step Indicator
-![Card with stepindicator][step-indi]
+<!-- ![Card with stepindicator][step-indi] -->
+<img src="https://github.com/kyunwang/hva-css-minor/blob/develop/images/progress.png" alt="Card with stepindicator" max-heigth="360">
 
 Rating example makes use of Emoji from: http://emojione.com
 
