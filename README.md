@@ -10,7 +10,12 @@ Accessibility using keyboard
 # The constrains
 - No classes or id's to use for styling (Navigating with id  is ok)
 - No JavaScript
-- More...222222222
+- Preprocessors allowed but only the css counts. (So scss won't be taken in the judgement)
+- You have to use `CSS grid`
+- Apply flexbox if you want to
+- Use custom properties
+- Use relative units
+- Apply selected techniques from the book *CSS Secrets by Lea Verou*
 
 # Proces
 The process and planning.
@@ -18,6 +23,9 @@ The process and planning.
 
 ## Week 1
 What I've done, learned and plan to do in week 1.
+
+**Result of week 1 [HERE](https://kyunwang.github.io/hva-css-minor/app_old/)**
+
 ### What I've done
 - Thinking out how each component will look like
 
@@ -70,18 +78,22 @@ Learning more about CSS Grid's syntax and using it in practical sense.
 - Update the readme
 
 ## Week 3
+**Result of week 3 [HERE](https://kyunwang.github.io/hva-css-minor/app/)**
+
 ### What I've done
-- Fixing and retouching
+- Fixing, retouching, corrections
 - Used `column-count` instead of `grid` for a masonry layout.
-- Adding little animations
+- Adding and adjusting little animations
+- Applied all the selected techniques from the book *CSS Secrets*
 
 ### What I've learned
 - Got more familiar with keyframes
 - Got more familiar with styling the `<progress>` tag
 - Learned some tricks from the book *CSS Secrets*
-### What to do/planned
+- More usages of `psuedo selectors` e.g. `:not(:placeholder-shown)`
 
 # Components
+The component that had to be styled can be found [here](https://github.com/kyunwang/hva-css-minor/tree/master/components)
 
 ## Login
 ## Navigation
