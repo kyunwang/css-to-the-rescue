@@ -99,13 +99,22 @@ Learning more about CSS Grid's syntax and using it in practical sense.
 # Components
 The component that had to be styled can be found [here](https://github.com/kyunwang/hva-css-minor/tree/master/components)
 
+## Media Item in Overview
+![An overview of all the items][home]
 ## Login
+![An login form][login]
+
 ## Navigation
-## Rating
+![An navigation bar with four items][navigation]
+
 ## Chat
-## Media Item
-## Picture with Subtitle
+![A chat][chat]
+
+## Picture with Subtitle & Rating
+![A modal of a selected item][pic-sub]
+
 ## Step Indicator
+![Card with stepindicator][step-indi]
 
 Rating example makes use of Emoji from: http://emojione.com
 
@@ -133,3 +142,11 @@ On nav links and link in the login page using transparent borders.
 In the login form under account.html
 - [x] (Pseudo)random background — 2.7
 Set on the progressbar in /learn.html
+
+
+[home]: https://github.com/kyunwang/hva-css-minor/blob/develop/images/overview.png
+[login]: https://github.com/kyunwang/hva-css-minor/blob/develop/images/login.png
+[navigation]: https://github.com/kyunwang/hva-css-minor/blob/develop/images/navigation.png
+[chat]: https://github.com/kyunwang/hva-css-minor/blob/develop/images/chat.png
+[pic-sub]: https://github.com/kyunwang/hva-css-minor/blob/develop/images/modal.png
+[step-indi]: https://github.com/kyunwang/hva-css-minor/blob/develop/images/progress.png
