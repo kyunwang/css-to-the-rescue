@@ -24,7 +24,7 @@ The process and planning.
 ## Week 1
 What I've done, learned and plan to do in week 1.
 
-**Result of week 1 [HERE](https://kyunwang.github.io/hva-css-minor/app_old/)**
+**Result of week 1 [HERE](https://kyunwang.github.io/hva-css-minor/week1/)**
 
 ### What I've done
 - Thinking out how each component will look like
