@@ -321,16 +321,16 @@ main {
 }
 
 @media all and (min-width: 40rem) {
+    body {
+        grid-template-areas: "header mainnav mainnav" "content content content" "footer footer footer";
+    }
+
     main {
         column-count: 2;
     }
 }
 
 @media all and (min-width: 50rem) {
-    body {
-        grid-template-areas: "header mainnav mainnav" "content content content" "footer footer footer";
-    }
-
     main {
         column-count: 3;
     }
@@ -367,7 +367,7 @@ nav:first-of-type {
 
 nav:first-of-type ul {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 1rem 0;
 }
@@ -412,6 +412,10 @@ nav:first-of-type a {
 }
 
 @media all and (min-width: 40rem) {
+    nav:first-of-type ul {
+        justify-content: flex-end;
+    }
+
     nav ul ul {
         width: 60%;
         max-width: 15rem;
