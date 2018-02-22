@@ -7,6 +7,11 @@ Purpose:
 Learn and explore more of CSS
 Accessibility using keyboard
 
+In parallel with the course [Web App From Scratch](https://github.com/kyunwang/wafs)
+
+**[Here Live](https://kyunwang.github.io/hva-css-minor/app/)**
+
+
 # The constrains
 - No classes or id's to use for styling (Navigating with id  is ok)
 - No JavaScript
